@@ -20,6 +20,7 @@ namespace Project_Data_Mining
         private void Form1_Load(object sender, EventArgs e)
         {
             string victor = "haloo";
+            string halo = "halo";
         }
     }
 }
