@@ -21,6 +21,8 @@ namespace Project_Data_Mining
         {
             string victor = "haloo";
             string halo = "halo";
+            string yo = "sip masbro";
+
         }
     }
 }
