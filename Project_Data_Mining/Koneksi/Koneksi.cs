@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using System.Configuration;
+
+using MySql.Data.MySqlClient;
 
 namespace Koneksi
 {
@@ -53,6 +54,7 @@ namespace Koneksi
             }
             koneksiDB.Open();
         }
+
         public static MySqlDataReader JalankanPerintahQuery(string sql)
         {
             Koneksi k = new Koneksi();
@@ -60,10 +62,26 @@ namespace Koneksi
             MySqlDataReader hasil = c.ExecuteReader();
             return hasil;
         }
+
+        public static MySqlDataReader JalankanPerintahQuery(string sql, Koneksi koneksi)
+        {
+            MySqlCommand c = new MySqlCommand(sql, koneksi.KoneksiDB);
+            MySqlDataReader hasil = c.ExecuteReader();
+            return hasil;
+        }
+
         public static int JalankanPerintahDML(string sql)
         {
             Koneksi k = new Koneksi();
             MySqlCommand c = new MySqlCommand(sql, k.KoneksiDB);
+            int hasil = 0;
+            hasil = c.ExecuteNonQuery();
+            return hasil;
+        }
+
+        public static int JalankanPerintahDML(string sql, Koneksi koneksi)
+        {
+            MySqlCommand c = new MySqlCommand(sql, koneksi.KoneksiDB);
             int hasil = 0;
             hasil = c.ExecuteNonQuery();
             return hasil;
