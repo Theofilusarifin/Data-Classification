@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project_Data_Mining", "Project_Data_Mining\Project_Data_Mining.csproj", "{0A98EE3E-04B7-4350-824C-1DD3DC7B44B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project_Data_Mining_LIB", "Koneksi\Project_Data_Mining_LIB.csproj", "{936422D4-3162-4538-838B-D9521BEB08B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project_Data_Mining_LIB", "Project_Data_Mining_LIB\Project_Data_Mining_LIB.csproj", "{936422D4-3162-4538-838B-D9521BEB08B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

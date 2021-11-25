@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-
 using MySql.Data.MySqlClient;
 
-namespace Koneksi
+namespace Project_Data_Mining_LIB
 {
     public class Koneksi
     {

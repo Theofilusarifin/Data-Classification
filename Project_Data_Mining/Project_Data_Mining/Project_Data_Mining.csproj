@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project_Data_Mining_LIB\Project_Data_Mining_LIB.csproj">
+      <Project>{936422d4-3162-4538-838b-d9521beb08b1}</Project>
+      <Name>Project_Data_Mining_LIB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

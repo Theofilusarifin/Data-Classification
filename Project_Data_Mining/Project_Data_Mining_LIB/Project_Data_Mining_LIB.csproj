@@ -7,8 +7,8 @@
     <ProjectGuid>{936422D4-3162-4538-838B-D9521BEB08B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Koneksi</RootNamespace>
-    <AssemblyName>Koneksi</AssemblyName>
+    <RootNamespace>Project_Data_Mining_LIB</RootNamespace>
+    <AssemblyName>Project_Data_Mining_LIB</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dataset.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
