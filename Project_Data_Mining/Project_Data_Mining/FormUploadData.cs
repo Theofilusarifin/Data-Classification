@@ -51,14 +51,17 @@ namespace Project_Data_Mining
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //string sql = "insert into data values('";
-            //for (int x = 1; x <= dataGridView.Rows.Count; x++)
-            //{
-            //    for (int y = 1; y <= FormUtama.featNumber; y++)
-            //    {
-            //        MessageBox.Show(dataGridView.Rows[x].Cells[y].Value.ToString());
-            //    }
-            //}
+            for (int x = 0; x < dataGridView.Rows.Count-1; x++)
+            {
+                string sql = "insert into data values(";
+                for (int y = 0; y < FormUtama.featNumber; y++)
+                {
+                    sql += "'" + dataGridView.Rows[x].Cells[y].Value + "', ";
+                }
+                sql += "'" + dataGridView.Rows[x].Cells[FormUtama.featNumber].Value + "')";
+                MessageBox.Show(sql);
+                Koneksi.JalankanPerintahDML(sql);
+            }
         }
     }
 }
