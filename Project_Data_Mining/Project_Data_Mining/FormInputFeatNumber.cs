@@ -18,6 +18,19 @@ namespace Project_Data_Mining
             InitializeComponent();
         }
 
+        #region No Tick Constrols
+        //Optimized Controls(No Tick)
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+        #endregion
+
         private string sql = "CREATE TABLE data(document_id VARCHAR(50) NOT NULL, ";
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -42,5 +55,16 @@ namespace Project_Data_Mining
             frm.Show();
             this.Hide();
         }
+
+        #region DesainButton
+        private void buttonSubmit_MouseEnter(object sender, EventArgs e)
+        {
+            buttonSubmit.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonSubmit_MouseLeave(object sender, EventArgs e)
+        {
+            buttonSubmit.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
     }
 }
