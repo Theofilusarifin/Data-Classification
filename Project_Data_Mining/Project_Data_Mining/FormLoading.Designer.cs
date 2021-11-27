@@ -1,7 +1,7 @@
 ﻿
 namespace Project_Data_Mining
 {
-    partial class FormUtama
+    partial class FormLoading
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,10 @@ namespace Project_Data_Mining
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FormUtama
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormUtama";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormUtama";
-            this.Load += new System.EventHandler(this.FormUtama_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "FormLoading";
         }
 
         #endregion

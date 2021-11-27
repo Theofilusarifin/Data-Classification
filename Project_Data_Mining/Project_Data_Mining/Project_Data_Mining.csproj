@@ -46,6 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>db.settings</DependentUpon>
+    </Compile>
+    <Compile Include="FormInputFeatNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInputFeatNumber.Designer.cs">
+      <DependentUpon>FormInputFeatNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUploadData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUploadData.Designer.cs">
+      <DependentUpon>FormUploadData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUtama.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +83,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormInputFeatNumber.resx">
+      <DependentUpon>FormInputFeatNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUploadData.resx">
+      <DependentUpon>FormUploadData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +104,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="db.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>db.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

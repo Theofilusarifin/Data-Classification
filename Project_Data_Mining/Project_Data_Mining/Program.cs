@@ -16,7 +16,7 @@ namespace Project_Data_Mining
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormUtama());
+            Application.Run(new FormInputFeatNumber());
         }
     }
 }
