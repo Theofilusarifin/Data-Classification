@@ -40,9 +40,9 @@ namespace Project_Data_Mining
 
             FormUtama.featNumber = int.Parse(textBoxFeatNumber.Text);
 
-            for (int i=1; i<=FormUtama.featNumber; i++)
+            for (int i = 1; i <= FormUtama.featNumber; i++)
             {
-                sql += "feat"+ i +" INT, ";
+                sql += "feat" + i + " INT, ";
             }
             sql += " PRIMARY KEY(document_id));";
 

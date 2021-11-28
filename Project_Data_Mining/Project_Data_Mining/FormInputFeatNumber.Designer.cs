@@ -48,6 +48,7 @@ namespace Project_Data_Mining
             this.buttonSubmit.TabIndex = 8;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = false;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             this.buttonSubmit.MouseEnter += new System.EventHandler(this.buttonSubmit_MouseEnter);
             this.buttonSubmit.MouseLeave += new System.EventHandler(this.buttonSubmit_MouseLeave);
             // 
