@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Project_Data_Mining_LIB;
 using System.Data.OleDb;
+using System.IO;
 //using System.Data.SqlClient;
 
 namespace Project_Data_Mining
@@ -38,7 +40,11 @@ namespace Project_Data_Mining
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Select File";
             fdlg.FileName = textBoxFileName.Text;
-            fdlg.Filter = "All Files(*.*)|*.*|Excel Sheet (*.xls)|*.xls";
+            // filter jenis/format file
+            // nama format file|format file|
+            fdlg.Filter = "All Files|*.*|" +
+                          "Excel 97-2003 Workbook (.xls)|*.xls";
+                          //"Excel Workbook (.xlsx)|*.xlsx";
             fdlg.FilterIndex = 1;
             fdlg.RestoreDirectory = true;
             if (fdlg.ShowDialog() == DialogResult.OK)
@@ -50,28 +56,43 @@ namespace Project_Data_Mining
         // To read the excel data into datagridview
         private void buttonImport_Click(object sender, EventArgs e)
         {
-            OleDbConnection theConnection = new OleDbConnection(@"provider=Microsoft.Jet.OLEDB.4.0;data source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"");
+            try
+            {
+                //string strcon;
+                //if (Path.GetExtension(textBoxFileName.Text).ToLower().Equals(".xls"))
+                //    strcon = @"provider=Microsoft.Jet.OLEDB.4.0;data source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"";
+                //else
+                //    strcon = @"provider=Microsoft.ACE.OLEDB.12.0;data source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"";
 
-            theConnection.Open();
+                //OleDbConnection theConnection = new OleDbConnection(strcon);
 
-            OleDbDataAdapter theDataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", theConnection);
+                OleDbConnection theConnection = new OleDbConnection(@"provider=Microsoft.Jet.OLEDB.4.0;data source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"");
 
-            DataSet theSD = new DataSet();
-            DataTable dt = new DataTable();
-            theDataAdapter.Fill(dt);
-            this.dataGridView.DataSource = dt.DefaultView;
+                theConnection.Open();
+
+                OleDbDataAdapter theDataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", theConnection);
+
+                DataSet theSD = new DataSet();
+                DataTable dt = new DataTable();
+                theDataAdapter.Fill(dt);
+                this.dataGridView.DataSource = dt.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            for (int x = 0; x < dataGridView.Rows.Count - 1; x++)
+            for (int rows = 0; rows < dataGridView.Rows.Count - 1; rows++)
             {
                 string sql = "insert into data values(";
-                for (int y = 0; y < FormUtama.featNumber; y++)
+                for (int column = 0; column < FormUtama.featNumber; column++)
                 {
-                    sql += "'" + dataGridView.Rows[x].Cells[y].Value + "', ";
+                    sql += "'" + dataGridView.Rows[rows].Cells[column].Value + "', ";
                 }
-                sql += "'" + dataGridView.Rows[x].Cells[FormUtama.featNumber].Value + "')";
+                sql += "'" + dataGridView.Rows[rows].Cells[FormUtama.featNumber].Value + "')";
                 //MessageBox.Show(sql);
                 Koneksi.JalankanPerintahDML(sql);
             }

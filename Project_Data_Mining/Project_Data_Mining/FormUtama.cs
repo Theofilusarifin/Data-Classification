@@ -34,6 +34,7 @@ namespace Project_Data_Mining
         }
         #endregion
 
+        #region FormLoad
         private void FormUtama_Load(object sender, EventArgs e)
         {
             //Ubah FormUtama menjadi MdiParent (MdiContainer)
@@ -50,6 +51,7 @@ namespace Project_Data_Mining
                 MessageBox.Show("Koneksi Gagal. Pesan Kesalahan : " + ex.Message);
             }
         }
+        #endregion
 
         #region DesainButton
         private void buttonGetStarted_MouseEnter(object sender, EventArgs e)
@@ -62,10 +64,11 @@ namespace Project_Data_Mining
         }
         #endregion
 
+        #region Buka 1 Form saja
         private void buttonGetStarted_Click(object sender, EventArgs e)
         {
             //Buka Form
-            Form form = Application.OpenForms["FormInputDeatNumber"];
+            Form form = Application.OpenForms["FormInputFeatNumber"];
 
             if (form == null) //Jika Form ini belum di-create sebelumnya
             {
@@ -80,5 +83,6 @@ namespace Project_Data_Mining
                 form.BringToFront(); //Agar form tampil di depan
             }
         }
+        #endregion
     }
 }

@@ -30,8 +30,9 @@ namespace Project_Data_Mining
         private void InitializeComponent()
         {
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.textBoxFeatNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDownFeatNumber = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSubmit
@@ -52,26 +53,23 @@ namespace Project_Data_Mining
             this.buttonSubmit.MouseEnter += new System.EventHandler(this.buttonSubmit_MouseEnter);
             this.buttonSubmit.MouseLeave += new System.EventHandler(this.buttonSubmit_MouseLeave);
             // 
-            // textBoxFeatNumber
-            // 
-            this.textBoxFeatNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxFeatNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFeatNumber.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.textBoxFeatNumber.Location = new System.Drawing.Point(252, 41);
-            this.textBoxFeatNumber.Name = "textBoxFeatNumber";
-            this.textBoxFeatNumber.Size = new System.Drawing.Size(145, 27);
-            this.textBoxFeatNumber.TabIndex = 10;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(30, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 22);
+            this.label1.Size = new System.Drawing.Size(190, 20);
             this.label1.TabIndex = 11;
             this.label1.Text = "Input Data Feat Number :";
+            // 
+            // numericUpDownFeatNumber
+            // 
+            this.numericUpDownFeatNumber.Location = new System.Drawing.Point(252, 43);
+            this.numericUpDownFeatNumber.Name = "numericUpDownFeatNumber";
+            this.numericUpDownFeatNumber.Size = new System.Drawing.Size(145, 20);
+            this.numericUpDownFeatNumber.TabIndex = 12;
             // 
             // FormInputFeatNumber
             // 
@@ -79,14 +77,15 @@ namespace Project_Data_Mining
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(443, 171);
+            this.Controls.Add(this.numericUpDownFeatNumber);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxFeatNumber);
             this.Controls.Add(this.buttonSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormInputFeatNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormInputFeatNumber";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,7 +93,7 @@ namespace Project_Data_Mining
 
         #endregion
         private System.Windows.Forms.Button buttonSubmit;
-        private System.Windows.Forms.TextBox textBoxFeatNumber;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDownFeatNumber;
     }
 }
