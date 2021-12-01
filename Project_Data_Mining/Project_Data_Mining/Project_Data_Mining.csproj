@@ -98,6 +98,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResult.resx">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUploadData.resx">
       <DependentUpon>FormUploadData.cs</DependentUpon>
     </EmbeddedResource>

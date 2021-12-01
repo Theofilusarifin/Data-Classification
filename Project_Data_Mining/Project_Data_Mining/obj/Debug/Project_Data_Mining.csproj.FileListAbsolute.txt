@@ -59,12 +59,10 @@ D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Project_Data_Mining_LIB.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\MySql.Data.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Google.Protobuf.dll
-D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Zstandard.Net.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\K4os.Compression.LZ4.Streams.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\BouncyCastle.Crypto.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Ubiety.Dns.Core.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\System.Memory.dll
-D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\System.Buffers.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\K4os.Compression.LZ4.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\K4os.Hash.xxHash.dll
@@ -83,3 +81,6 @@ D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.csproj.CopyComplete
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.exe
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.pdb
+D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\ZstdNet.dll
+D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.exe.config
+D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormResult.resources
