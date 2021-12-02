@@ -87,14 +87,13 @@ namespace Project_Data_Mining
         {
             for (int rows = 0; rows < dataGridView.Rows.Count - 1; rows++)
             {
-                string sql = "insert into data values(";
-                for (int column = 0; column < FormUtama.featNumber; column++)
+                Data d = new Data(dataGridView.Rows[rows].Cells[0].Value.ToString());
+                Data.TambahData(d);
+                for (int column = 1; column <= FormUtama.featNumber; column++)
                 {
-                    sql += "'" + dataGridView.Rows[rows].Cells[column].Value + "', ";
+                    Feat f = new Feat(d, column, double.Parse(dataGridView.Rows[rows].Cells[column].Value.ToString()));
+                    Feat.TambahData(f);
                 }
-                sql += "'" + dataGridView.Rows[rows].Cells[FormUtama.featNumber].Value + "')";
-                //MessageBox.Show(sql);
-                Koneksi.JalankanPerintahDML(sql);
             }
             FormLoading frm = new FormLoading(); //Create Object
             frm.Owner = this;

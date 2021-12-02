@@ -45,6 +45,12 @@ namespace Project_Data_Mining
                 //Ambil nilai di db setting
                 koneksi = new Koneksi();
                 //MessageBox.Show("Koneksi Berhasil");
+
+                //Melakuan drop dan membuat kembali table pada database agar data kembali kosong
+                Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS feats;");
+                Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS datas;");
+                Koneksi.JalankanPerintahDML("CREATE TABLE datas(document_id VARCHAR(50) NOT NULL, PRIMARY KEY (document_id));");
+                Koneksi.JalankanPerintahDML("CREATE TABLE feats (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id VARCHAR(50) NOT NULL, feat_id INT NULL, nilai DOUBLE NULL, PRIMARY KEY (id), INDEX fk_feats_datas_idx (document_id ASC), CONSTRAINT fk_feats_datas FOREIGN KEY (document_id) REFERENCES project_data_mining.datas (document_id) ON DELETE NO ACTION ON UPDATE NO ACTION)");
             }
             catch (Exception ex)
             {
@@ -64,7 +70,7 @@ namespace Project_Data_Mining
         }
         #endregion
 
-        #region Buka 1 Form saja
+        #region Button
         private void buttonGetStarted_Click(object sender, EventArgs e)
         {
             //Buka Form
