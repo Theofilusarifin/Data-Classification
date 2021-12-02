@@ -11,22 +11,26 @@ namespace Project_Data_Mining_LIB
     {
         #region Fields
         private int id;
+        // Pakai kelas karena class tidak bisa dipakai (default c#)
+        private Class kelas;
         private Data data;
         private int feat_id;
-        private double nilai;
+        private string nilai;
         #endregion
 
         #region Constructors
-        public Feat(int id, Data data, int feat_id, double nilai)
+        public Feat(int id, Data data, Class kelas, int feat_id, string nilai)
         {
             this.Id = id;
             this.Data = data;
+            this.Kelas = kelas;
             this.Feat_id = feat_id;
             this.Nilai = nilai;
         }
-        public Feat(Data data, int feat_id, double nilai)
+        public Feat(Data data, Class kelas, int feat_id, string nilai)
         {
             this.Data = data;
+            this.Kelas = kelas;
             this.Feat_id = feat_id;
             this.Nilai = nilai;
         }
@@ -43,12 +47,17 @@ namespace Project_Data_Mining_LIB
             get => data; 
             set => data = value; 
         }
+        public Class Kelas
+        {
+            get => kelas;
+            set => kelas = value;
+        }
         public int Feat_id
         {
             get => feat_id;
             set => feat_id = value;
         }
-        public double Nilai
+        public string Nilai
         { 
             get => nilai; 
             set => nilai = value; 
@@ -58,7 +67,7 @@ namespace Project_Data_Mining_LIB
         #region Methods
         public static Boolean TambahData(Feat f)
         {
-            string sql = "insert into feats (document_id, feat_id, nilai) values ('" + f.Data.Document_id + "', " + f.Feat_id + ", " + f.Nilai + ")";
+            string sql = "insert into feats (document_id, class_id, feat_id, nilai) values ('" + f.Data.Document_id + "', '" + f.Kelas.Id + "', " + f.Feat_id + ", '" + f.Nilai + "')";
 
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;

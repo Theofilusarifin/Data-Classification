@@ -70,7 +70,7 @@ namespace Project_Data_Mining
             this.Controls.Add(this.buttonGetStarted);
             this.Controls.Add(this.label1);
             this.Name = "FormUtama";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUtama";
             this.Load += new System.EventHandler(this.FormUtama_Load);
             this.ResumeLayout(false);

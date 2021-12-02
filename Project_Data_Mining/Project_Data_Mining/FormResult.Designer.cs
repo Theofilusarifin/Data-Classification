@@ -33,7 +33,7 @@ namespace Project_Data_Mining
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.radioButtonManhattan = new System.Windows.Forms.RadioButton();
             this.radioButtonEuclidean = new System.Windows.Forms.RadioButton();
-            this.radioButtonSupreme = new System.Windows.Forms.RadioButton();
+            this.radioButtonSupremum = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +66,6 @@ namespace Project_Data_Mining
             this.radioButtonManhattan.TabStop = true;
             this.radioButtonManhattan.Text = "Manhattan";
             this.radioButtonManhattan.UseVisualStyleBackColor = true;
-            this.radioButtonManhattan.Click += new System.EventHandler(this.radioButtonManhattan_Click);
             // 
             // radioButtonEuclidean
             // 
@@ -77,30 +76,29 @@ namespace Project_Data_Mining
             this.radioButtonEuclidean.TabIndex = 3;
             this.radioButtonEuclidean.Text = "Euclidean";
             this.radioButtonEuclidean.UseVisualStyleBackColor = true;
-            this.radioButtonEuclidean.Click += new System.EventHandler(this.radioButtonEuclidean_Click);
             // 
-            // radioButtonSupreme
+            // radioButtonSupremum
             // 
-            this.radioButtonSupreme.AutoSize = true;
-            this.radioButtonSupreme.Location = new System.Drawing.Point(478, 51);
-            this.radioButtonSupreme.Name = "radioButtonSupreme";
-            this.radioButtonSupreme.Size = new System.Drawing.Size(67, 17);
-            this.radioButtonSupreme.TabIndex = 4;
-            this.radioButtonSupreme.Text = "Supreme";
-            this.radioButtonSupreme.UseVisualStyleBackColor = true;
-            this.radioButtonSupreme.Click += new System.EventHandler(this.radioButtonSupreme_Click);
+            this.radioButtonSupremum.AutoSize = true;
+            this.radioButtonSupremum.Location = new System.Drawing.Point(478, 51);
+            this.radioButtonSupremum.Name = "radioButtonSupremum";
+            this.radioButtonSupremum.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonSupremum.TabIndex = 4;
+            this.radioButtonSupremum.Text = "Supremum";
+            this.radioButtonSupremum.UseVisualStyleBackColor = true;
             // 
             // FormResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButtonSupreme);
+            this.Controls.Add(this.radioButtonSupremum);
             this.Controls.Add(this.radioButtonEuclidean);
             this.Controls.Add(this.radioButtonManhattan);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormResult";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormResult";
             this.Load += new System.EventHandler(this.FormResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -115,6 +113,6 @@ namespace Project_Data_Mining
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.RadioButton radioButtonManhattan;
         private System.Windows.Forms.RadioButton radioButtonEuclidean;
-        private System.Windows.Forms.RadioButton radioButtonSupreme;
+        private System.Windows.Forms.RadioButton radioButtonSupremum;
     }
 }

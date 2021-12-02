@@ -85,13 +85,31 @@ namespace Project_Data_Mining
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            // Melakukan iterasi sesuai banyaknya data
             for (int rows = 0; rows < dataGridView.Rows.Count - 1; rows++)
             {
+                //Membuat data baru yang ada pada col 0
                 Data d = new Data(dataGridView.Rows[rows].Cells[0].Value.ToString());
+                //Menambahkan data ke database
                 Data.TambahData(d);
+
+                //Membuat class yang ada pada col terakhir
+                Class c = new Class(dataGridView.Rows[rows].Cells[FormUtama.featNumber+1].Value.ToString());
+                // Check apakah class baru atau bukan
+                if (!FormUtama.listClass.Contains(c.Id))
+                {
+                    //Tambah data class ke database
+                    Class.TambahData(c);
+                    //Tambah data class ke list
+                    FormUtama.listClass.Add(c.Id);
+                }
+
+                // Melakukan iterasi di col 1-featnumber
                 for (int column = 1; column <= FormUtama.featNumber; column++)
                 {
-                    Feat f = new Feat(d, column, double.Parse(dataGridView.Rows[rows].Cells[column].Value.ToString()));
+                    // Membuat feat baru ke database
+                    Feat f = new Feat(d, c, column, dataGridView.Rows[rows].Cells[column].Value.ToString());
+                    // Menambahkan feat
                     Feat.TambahData(f);
                 }
             }

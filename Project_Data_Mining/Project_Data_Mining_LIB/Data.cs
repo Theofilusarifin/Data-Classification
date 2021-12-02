@@ -51,12 +51,13 @@ namespace Project_Data_Mining_LIB
             {
                 Data d = new Data(hasil.GetString(0));
 
-                string sql_join = "select feat_id, nilai from feats where document_id = '" + d.Document_id + "'";
+                string sql_join = "select class_id, feat_id, nilai from feats where document_id = '" + d.Document_id + "'";
                 MySqlDataReader hasil_join = Koneksi.JalankanPerintahQuery(sql_join);
 
                 while (hasil_join.Read() == true)
                 {
-                    Feat f = new Feat(d, hasil_join.GetInt32(0), hasil_join.GetDouble(1));
+                    Class c = new Class(hasil_join.GetString(0));
+                    Feat f = new Feat(d, c, hasil_join.GetInt32(1), hasil_join.GetString(2));
                     d.ListFeat.Add(f);
                 }
 

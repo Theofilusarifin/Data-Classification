@@ -18,26 +18,6 @@ namespace Project_Data_Mining
             InitializeComponent();
         }
         List<Data> listData = new List<Data>();
-        
-        #region RadioButton
-        private void radioButtonManhattan_Click(object sender, EventArgs e)
-        {
-            radioButtonEuclidean.Checked = false;
-            radioButtonSupreme.Checked = false;
-        }
-
-        private void radioButtonEuclidean_Click(object sender, EventArgs e)
-        {
-            radioButtonManhattan.Checked = false;
-            radioButtonSupreme.Checked = false;
-        }
-
-        private void radioButtonSupreme_Click(object sender, EventArgs e)
-        {
-            radioButtonManhattan.Checked = false;
-            radioButtonEuclidean.Checked = false;
-        }
-        #endregion
 
         #region Methods
         private void FormatDataGrid()
@@ -63,22 +43,14 @@ namespace Project_Data_Mining
             dataGridView.ReadOnly = true;
         }
 
-        private void TampilDataGrid()
+        private double ManhattanCalculation(Data d1, Data d2, int featNumber)
         {
-            //Kosongi isi datagridview
-            //dataGridView.Rows.Clear();
-
-            //if (listBarang.Count > 0)
-            //{
-            //    foreach (Barang b in listBarang)
-            //    {
-            //        dataGridView.Rows.Add(b.Id, b.Nama, b.Harga, b.Kategori.Nama);
-            //    }
-            //}
-            //else
-            //{
-            //    dataGridView.DataSource = null;
-            //}
+            double result = 0;
+            for (int i = 0; i < featNumber; i++)
+            {
+                result += Math.Abs((double.Parse(d1.ListFeat[i].Nilai) - double.Parse(d2.ListFeat[i].Nilai)));
+            }
+            return result;
         }
 
         private double EuclideanCalculation(Data d1, Data d2, int featNumber)
@@ -86,10 +58,20 @@ namespace Project_Data_Mining
             double result = 0;
             for (int i = 0; i < featNumber; i++)
             {
-                result += Math.Pow((d1.ListFeat[i].Nilai - d2.ListFeat[i].Nilai), 2);
+                result += Math.Pow((double.Parse(d1.ListFeat[i].Nilai) - double.Parse(d2.ListFeat[i].Nilai)), 2);
             }
             result = Math.Round(Math.Sqrt(result),2);
             return result;
+        }
+
+        private double SupremumCalculation(Data d1, Data d2, int featNumber)
+        {
+            List<double> listResult = new List<double>();
+            for (int i = 0; i < featNumber; i++)
+            {
+                listResult.Add(Math.Abs((double.Parse(d1.ListFeat[i].Nilai) - double.Parse(d2.ListFeat[i].Nilai))));
+            }
+            return listResult.Max();
         }
         #endregion
 
@@ -101,23 +83,21 @@ namespace Project_Data_Mining
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            double manhattan, supreme;
-            double max;
+            //Kosongi isi datagridview
+            dataGridView.Rows.Clear();
             List<double> Feat1 = new List<double>();
             List<double> Feat2 = new List<double>();
 
             #region Manhattan
             if (radioButtonManhattan.Checked)
             {
-                for (int x = 0; x < DataClass.DataMemberCount; x++)
+                for (int row = 0; row < listData.Count; row++)
                 {
-                    for (int y = 0; y < DataClass.DataMemberCount; y++)
+                    this.dataGridView.Rows.Add();
+                    dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                    for (int col = 0; col < listData.Count; col++)
                     {
-                        manhattan = 
-                        Math.Abs(Convert.ToDouble(Feat1[x]) - Convert.ToDouble(Feat1[y])) + 
-                        Math.Abs(Convert.ToDouble(Feat2[x]) - Convert.ToDouble(Feat2[y]));
-
-                        manhattan = Math.Round(manhattan, 2);
+                        dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(listData[row], listData[col], FormUtama.featNumber);
                     }
                 }
             }
@@ -138,19 +118,19 @@ namespace Project_Data_Mining
             }
             #endregion
 
-            #region Supreme
-            if (radioButtonSupreme.Checked)
+            #region Supremum
+            if (radioButtonSupremum.Checked)
             {
                 for (int x = 0; x < DataClass.DataMemberCount; x++)
                 {
-                    for (int y = 0; y < DataClass.DataMemberCount; y++)
+                    for (int row = 0; row < listData.Count; row++)
                     {
-                        double f1 = Math.Abs(Convert.ToDouble(Feat1[x]) - Convert.ToDouble(Feat1[y]));
-                        double f2 = Math.Abs(Convert.ToDouble(Feat2[x]) - Convert.ToDouble(Feat2[y]));
-                        if (f1 > f2) max = f1;
-                        else max = f2;
-
-                        supreme = max;
+                        this.dataGridView.Rows.Add();
+                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                        for (int col = 0; col < listData.Count; col++)
+                        {
+                            dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        }
                     }
                 }
             }

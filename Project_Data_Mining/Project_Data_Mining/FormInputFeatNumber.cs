@@ -41,7 +41,8 @@ namespace Project_Data_Mining
                 if (numericUpDownFeatNumber.Value > 1)
                 {
                     FormUtama.featNumber = (int)numericUpDownFeatNumber.Value;
-                    MessageBox.Show("Table telah berhasil di generate pada database", "Informasi");
+                    FormUtama.classNumber = (int)numericUpDownClassNumber.Value;
+                    MessageBox.Show("Data telah berhasil disimpan", "Informasi");
 
                     FormUploadData frm = new FormUploadData(); //Create Object
                     frm.Owner = this;
@@ -50,7 +51,7 @@ namespace Project_Data_Mining
                 }
                 else
                 {
-                    MessageBox.Show("Data harus mempunyai minimal x Feat");
+                    MessageBox.Show("Data harus mempunyai minimal 2 Feat");
                 }
             }
             catch(Exception ex)
