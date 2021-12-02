@@ -32,7 +32,7 @@ namespace Project_Data_Mining
         #endregion
 
         // membuat tabel data
-        private string sql = "CREATE TABLE data(document_id VARCHAR(50) NOT NULL, ";
+        //private string sql = "CREATE TABLE data(document_id VARCHAR(50) NOT NULL, ";
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
@@ -40,18 +40,7 @@ namespace Project_Data_Mining
             {
                 if (numericUpDownFeatNumber.Value > 1)
                 {
-                    Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS data;");
-
                     FormUtama.featNumber = (int)numericUpDownFeatNumber.Value;
-
-                    for (int i = 1; i <= FormUtama.featNumber; i++)
-                    {
-                        sql += "feat" + i + " INT, ";
-                    }
-                    sql += " PRIMARY KEY(document_id));";
-
-                    Koneksi.JalankanPerintahDML(sql);
-
                     MessageBox.Show("Table telah berhasil di generate pada database", "Informasi");
 
                     FormUploadData frm = new FormUploadData(); //Create Object

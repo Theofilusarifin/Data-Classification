@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.cs" />
     <Compile Include="DataClass.cs" />
     <Compile Include="Dataset.cs" />
+    <Compile Include="Feat.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
