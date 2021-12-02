@@ -252,7 +252,7 @@ namespace Project_Data_Mining
             this.textBoxData.Size = new System.Drawing.Size(786, 218);
             this.textBoxData.TabIndex = 22;
             // 
-            // FormUtama
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -278,9 +278,9 @@ namespace Project_Data_Mining
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDownNumOfFeat);
             this.Controls.Add(this.label1);
-            this.Name = "FormUtama";
+            this.Name = "FormMain";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumOfFeat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumOfDocs)).EndInit();
             this.ResumeLayout(false);
