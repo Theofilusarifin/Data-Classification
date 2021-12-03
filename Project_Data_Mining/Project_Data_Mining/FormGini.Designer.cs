@@ -1,7 +1,7 @@
 ﻿
 namespace Project_Data_Mining
 {
-    partial class FormGini
+    partial class FormGINI
     {
         /// <summary>
         /// Required designer variable.
@@ -35,10 +35,10 @@ namespace Project_Data_Mining
             // 
             // buttonCalculate
             // 
-            this.buttonCalculate.Location = new System.Drawing.Point(537, 257);
+            this.buttonCalculate.Location = new System.Drawing.Point(517, 231);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(75, 23);
-            this.buttonCalculate.TabIndex = 6;
+            this.buttonCalculate.TabIndex = 0;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = true;
             this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
@@ -46,26 +46,26 @@ namespace Project_Data_Mining
             // listBoxInfo
             // 
             this.listBoxInfo.FormattingEnabled = true;
-            this.listBoxInfo.Location = new System.Drawing.Point(13, 13);
+            this.listBoxInfo.Location = new System.Drawing.Point(12, 12);
             this.listBoxInfo.Name = "listBoxInfo";
-            this.listBoxInfo.Size = new System.Drawing.Size(599, 238);
-            this.listBoxInfo.TabIndex = 7;
+            this.listBoxInfo.Size = new System.Drawing.Size(580, 212);
+            this.listBoxInfo.TabIndex = 1;
             // 
-            // FormGini
+            // FormGINI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 289);
+            this.ClientSize = new System.Drawing.Size(599, 260);
             this.Controls.Add(this.listBoxInfo);
             this.Controls.Add(this.buttonCalculate);
-            this.Name = "FormGini";
-            this.Text = "FormGini";
-            this.Load += new System.EventHandler(this.FormGini_Load);
+            this.Name = "FormGINI";
+            this.Text = "FormGINI";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.ListBox listBoxInfo;
     }

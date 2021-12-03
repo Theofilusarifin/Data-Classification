@@ -11,16 +11,11 @@ using Project_Data_Mining_LIB;
 
 namespace Project_Data_Mining
 {
-    public partial class FormGini : Form
+    public partial class FormGINI : Form
     {
-        public FormGini()
-        {
-            InitializeComponent();
-        }
-
-        List<Class> listClass = new List<Class>();
-        List<Data> listData = new List<Data>();
-        List<Dataset> listds = new List<Dataset>();
+        List<string> listClass = FormUtama.listClass;
+        List<Data> listData = Data.BacaData();
+        List<Dataset> listDs = new List<Dataset>();
         #region Method
         public static double CountGiniFString(List<string> Feat, List<string> parent, List<Dataset> dataSet, int curFeat)
         {
@@ -255,17 +250,15 @@ namespace Project_Data_Mining
         }
 
         #endregion
-
-        private void FormGini_Load(object sender, EventArgs e)
+        public FormGINI()
         {
-            listClass = Class.BacaData();
-            //FormatDataGrid();
+            InitializeComponent();
         }
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
             #region class
-            var parent = listClass.GroupBy(x => x.Id).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var parent = listClass.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
             List<string> listDocClass = new List<string>();
             double ginTotal = 0;
             foreach (var x in parent)
@@ -280,7 +273,7 @@ namespace Project_Data_Mining
 
             #region Feats
             double gini = 0;
-            var feat = listClass.GroupBy(x => x.Id).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var feat = listClass.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
             List<string> listfeat = new List<string>();
             foreach (var x in feat)
             {
@@ -289,15 +282,15 @@ namespace Project_Data_Mining
             }
             for (int i = 0; i < listData.Count; i++)
             {
-                if (double.TryParse(listData[i].ListFeat.ToString(),out double check) == true)
+                if (double.TryParse(listData[i].ListFeat.ToString(), out double check) == true)
                 {
-                    gini = CountGiniFNum(listfeat, listDocClass, listds, (FormUtama.featNumber));
+                    gini = CountGiniFNum(listfeat, listDocClass, listDs, (FormUtama.featNumber));
                 }
                 else
                 {
-                    gini = CountGiniFString(listfeat, listDocClass, listds, (FormUtama.featNumber));
+                    gini = CountGiniFString(listfeat, listDocClass, listDs, (FormUtama.featNumber));
                 }
-                listBoxInfo.Items.Add("GINI Feat " + i + 1 + " : " + gini);
+                listBoxInfo.Items.Add("GINI Feat " + (i + 1) + " : " + gini);
             }
             #endregion
 
@@ -309,16 +302,16 @@ namespace Project_Data_Mining
             {
                 if (double.TryParse(listData[i].ListFeat.ToString(), out double check) == true)
                 {
-                    gini = CountGiniFNum(listfeat, listDocClass, listds, (FormUtama.featNumber));
+                    gini = CountGiniFNum(listfeat, listDocClass, listDs, (FormUtama.featNumber));
                 }
                 else
                 {
-                    gini = CountGiniFString(listfeat, listDocClass, listds, (FormUtama.featNumber));
+                    gini = CountGiniFString(listfeat, listDocClass, listDs, (FormUtama.featNumber));
                 }
                 marking = i;
                 gain = 1 - gini;
                 bestGain = gain;
-                if (gain> bestGain)
+                if (gain > bestGain)
                     bestGain = gain;
             }
             for (int z = 0; z < 5; z++)

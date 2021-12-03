@@ -36,7 +36,7 @@ namespace Project_Data_Mining
             if (panelLoading.Width >= 533)
             {
                 timerLoading.Stop();
-                FormResult frm = new FormResult(); //Create Object
+                FormGINI frm = new FormGINI(); //Create Object
                 frm.Owner = this;
                 frm.Show();
                 this.Hide();
