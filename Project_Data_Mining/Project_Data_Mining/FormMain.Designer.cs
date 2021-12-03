@@ -91,7 +91,7 @@ namespace Project_Data_Mining
             this.textBoxFeat2.Location = new System.Drawing.Point(204, 63);
             this.textBoxFeat2.Name = "textBoxFeat2";
             this.textBoxFeat2.Size = new System.Drawing.Size(80, 20);
-            this.textBoxFeat2.TabIndex = 5;
+            this.textBoxFeat2.TabIndex = 11;
             // 
             // label3
             // 
@@ -108,7 +108,7 @@ namespace Project_Data_Mining
             this.textBoxFeat3.Location = new System.Drawing.Point(306, 63);
             this.textBoxFeat3.Name = "textBoxFeat3";
             this.textBoxFeat3.Size = new System.Drawing.Size(80, 20);
-            this.textBoxFeat3.TabIndex = 7;
+            this.textBoxFeat3.TabIndex = 12;
             // 
             // label4
             // 
@@ -116,7 +116,7 @@ namespace Project_Data_Mining
             this.label4.Location = new System.Drawing.Point(327, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 5;
             this.label4.Text = "Feat 3";
             // 
             // textBoxFeat4
@@ -125,7 +125,7 @@ namespace Project_Data_Mining
             this.textBoxFeat4.Location = new System.Drawing.Point(412, 63);
             this.textBoxFeat4.Name = "textBoxFeat4";
             this.textBoxFeat4.Size = new System.Drawing.Size(80, 20);
-            this.textBoxFeat4.TabIndex = 9;
+            this.textBoxFeat4.TabIndex = 13;
             // 
             // label5
             // 
@@ -133,7 +133,7 @@ namespace Project_Data_Mining
             this.label5.Location = new System.Drawing.Point(433, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 8;
+            this.label5.TabIndex = 6;
             this.label5.Text = "Feat 4";
             // 
             // textBoxFeat5
@@ -142,7 +142,7 @@ namespace Project_Data_Mining
             this.textBoxFeat5.Location = new System.Drawing.Point(518, 63);
             this.textBoxFeat5.Name = "textBoxFeat5";
             this.textBoxFeat5.Size = new System.Drawing.Size(80, 20);
-            this.textBoxFeat5.TabIndex = 11;
+            this.textBoxFeat5.TabIndex = 14;
             // 
             // label6
             // 
@@ -150,7 +150,7 @@ namespace Project_Data_Mining
             this.label6.Location = new System.Drawing.Point(538, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 7;
             this.label6.Text = "Feat 5";
             // 
             // textBoxClass
@@ -159,7 +159,7 @@ namespace Project_Data_Mining
             this.textBoxClass.Location = new System.Drawing.Point(615, 63);
             this.textBoxClass.Name = "textBoxClass";
             this.textBoxClass.Size = new System.Drawing.Size(80, 20);
-            this.textBoxClass.TabIndex = 13;
+            this.textBoxClass.TabIndex = 15;
             // 
             // label7
             // 
@@ -167,7 +167,7 @@ namespace Project_Data_Mining
             this.label7.Location = new System.Drawing.Point(642, 47);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 12;
+            this.label7.TabIndex = 8;
             this.label7.Text = "Class";
             // 
             // textBoxFeat1
@@ -176,7 +176,7 @@ namespace Project_Data_Mining
             this.textBoxFeat1.Location = new System.Drawing.Point(108, 63);
             this.textBoxFeat1.Name = "textBoxFeat1";
             this.textBoxFeat1.Size = new System.Drawing.Size(80, 20);
-            this.textBoxFeat1.TabIndex = 15;
+            this.textBoxFeat1.TabIndex = 10;
             // 
             // label8
             // 
@@ -184,7 +184,7 @@ namespace Project_Data_Mining
             this.label8.Location = new System.Drawing.Point(135, 47);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 14;
+            this.label8.TabIndex = 3;
             this.label8.Text = "Feat 1";
             // 
             // buttonRestart
@@ -193,7 +193,7 @@ namespace Project_Data_Mining
             this.buttonRestart.Location = new System.Drawing.Point(11, 100);
             this.buttonRestart.Name = "buttonRestart";
             this.buttonRestart.Size = new System.Drawing.Size(75, 23);
-            this.buttonRestart.TabIndex = 16;
+            this.buttonRestart.TabIndex = 17;
             this.buttonRestart.Text = "Restart";
             this.buttonRestart.UseVisualStyleBackColor = true;
             this.buttonRestart.Click += new System.EventHandler(this.buttonRestart_Click);
@@ -204,7 +204,7 @@ namespace Project_Data_Mining
             this.buttonProximityMatrix.Location = new System.Drawing.Point(107, 100);
             this.buttonProximityMatrix.Name = "buttonProximityMatrix";
             this.buttonProximityMatrix.Size = new System.Drawing.Size(89, 23);
-            this.buttonProximityMatrix.TabIndex = 17;
+            this.buttonProximityMatrix.TabIndex = 18;
             this.buttonProximityMatrix.Text = "Proximity Matrix";
             this.buttonProximityMatrix.UseVisualStyleBackColor = true;
             this.buttonProximityMatrix.Click += new System.EventHandler(this.buttonProximityMatrix_Click);
@@ -215,7 +215,7 @@ namespace Project_Data_Mining
             this.buttonGINI.Location = new System.Drawing.Point(220, 100);
             this.buttonGINI.Name = "buttonGINI";
             this.buttonGINI.Size = new System.Drawing.Size(89, 23);
-            this.buttonGINI.TabIndex = 18;
+            this.buttonGINI.TabIndex = 19;
             this.buttonGINI.Text = "GINI";
             this.buttonGINI.UseVisualStyleBackColor = true;
             this.buttonGINI.Click += new System.EventHandler(this.buttonGINI_Click);
@@ -226,7 +226,7 @@ namespace Project_Data_Mining
             this.buttonAdd.Location = new System.Drawing.Point(708, 63);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(89, 23);
-            this.buttonAdd.TabIndex = 19;
+            this.buttonAdd.TabIndex = 16;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -236,13 +236,13 @@ namespace Project_Data_Mining
             this.numericUpDownNumOfDocs.Enabled = false;
             this.numericUpDownNumOfDocs.Location = new System.Drawing.Point(14, 65);
             this.numericUpDownNumOfDocs.Maximum = new decimal(new int[] {
-            5,
+            1000,
             0,
             0,
             0});
             this.numericUpDownNumOfDocs.Name = "numericUpDownNumOfDocs";
             this.numericUpDownNumOfDocs.Size = new System.Drawing.Size(74, 20);
-            this.numericUpDownNumOfDocs.TabIndex = 21;
+            this.numericUpDownNumOfDocs.TabIndex = 9;
             // 
             // textBoxData
             // 
@@ -250,7 +250,7 @@ namespace Project_Data_Mining
             this.textBoxData.Multiline = true;
             this.textBoxData.Name = "textBoxData";
             this.textBoxData.Size = new System.Drawing.Size(786, 218);
-            this.textBoxData.TabIndex = 22;
+            this.textBoxData.TabIndex = 20;
             // 
             // FormMain
             // 

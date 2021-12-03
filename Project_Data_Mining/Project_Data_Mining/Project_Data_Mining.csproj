@@ -51,6 +51,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormGini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGini.Designer.cs">
+      <DependentUpon>FormGini.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInputFeatNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormGini.resx">
+      <DependentUpon>FormGini.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInputFeatNumber.resx">
       <DependentUpon>FormInputFeatNumber.cs</DependentUpon>
     </EmbeddedResource>

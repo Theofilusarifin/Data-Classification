@@ -164,7 +164,7 @@ namespace Project_Data_Mining
             {
                 //Melakukan penghitungan class;
                 listClassDocs.Add(x.Value);
-                giniTotal += Math.Pow((double)(x.Count) / (double)(listClassDocs.Count), 2);
+                giniTotal += Math.Pow((double)(x.Count) / (double)(listDataSet.Count), 2);
             }
             double giniFinal = Math.Round(1 - giniTotal,3);
             textBoxData.AppendText("GINI Parent : " + giniFinal.ToString());
@@ -175,7 +175,7 @@ namespace Project_Data_Mining
             //.GroupBy untuk mengelompokkan value berdasarkan kategori tertentu
             //(misalnya ditemukan "id", dapat dipanggil dengan cara x.nationally)
             //pengelompokkan data berdasar nationally
-            var f1 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var f1 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderBy(x => x.Count);
 
             //Mencari semua kemungkinan value
             List<string> listf1 = new List<string>();
@@ -200,7 +200,7 @@ namespace Project_Data_Mining
 
             #region Feat2
             //melakukan hal yang sama seperti f1
-            var f2 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var f2 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderBy(x => x.Count);
 
             //Mencari semua kemungkinan value
             List<string> listf2 = new List<string>();
@@ -212,7 +212,7 @@ namespace Project_Data_Mining
 
             //melakukan checking data angka atau string
             double check1 = 0;
-            if (double.TryParse(listDataSet[0].Feat1.ToString(), out check1) == true)
+            if (double.TryParse(listDataSet[1].Feat2.ToString(), out check1) == true)
             {
                 gini2 = CountGiniFNum(listf2, listClassDocs, listDataSet, 2);
             }
@@ -225,7 +225,7 @@ namespace Project_Data_Mining
 
             #region Feat3
             //melakukan hal yang sama seperti f1
-            var f3 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var f3 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderBy(x => x.Count);
 
             //Mencari semua kemungkinan value
             List<string> listf3 = new List<string>();
@@ -237,7 +237,7 @@ namespace Project_Data_Mining
 
             //melakukan checking data angka atau string
             double check2 = 0;
-            if (double.TryParse(listDataSet[0].Feat1.ToString(), out check2) == true)
+            if (double.TryParse(listDataSet[2].Feat3.ToString(), out check2) == true)
             {
                 gini3 = CountGiniFNum(listf3, listClassDocs, listDataSet, 3);
             }
@@ -250,7 +250,7 @@ namespace Project_Data_Mining
 
             #region Feat4
             //melakukan hal yang sama seperti f1
-            var f4 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var f4 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderBy(x => x.Count);
 
             //Mencari semua kemungkinan value
             List<string> listf4 = new List<string>();
@@ -262,7 +262,7 @@ namespace Project_Data_Mining
 
             //melakukan checking data angka atau string
             double check3 = 0;
-            if (double.TryParse(listDataSet[0].Feat1.ToString(), out check3) == true)
+            if (double.TryParse(listDataSet[3].Feat4.ToString(), out check3) == true)
             {
                 gini4 = CountGiniFNum(listf4, listClassDocs, listDataSet, 3);
             }
@@ -275,7 +275,7 @@ namespace Project_Data_Mining
 
             #region Feat5 
             //melakukan hal yang sama seperti f1
-            var f5 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
+            var f5 = listDataSet.GroupBy(x => x.Classes).Select(g => new { Value = g.Key, Count = g.Count() }).OrderBy(x => x.Count);
 
             //Mencari semua kemungkinan value
             List<string> listf5 = new List<string>();
@@ -287,7 +287,7 @@ namespace Project_Data_Mining
 
             //melakukan checking data angka atau string
             double check4 = 0;
-            if (double.TryParse(listDataSet[0].Feat1.ToString(), out check4) == true)
+            if (double.TryParse(listDataSet[4].Feat5.ToString(), out check4) == true)
             {
                 gini5 = CountGiniFNum(listf5, listClassDocs, listDataSet, 5);
             }
@@ -527,7 +527,7 @@ namespace Project_Data_Mining
             ProbDataMinNow = ProbDataMaxNow = ProbCumMin = ProbCumMax = gini = OPTGiniMin = OPTGiniMax = 0;
             for (int x = 0; x < featNum.Count; x+=3)
             {
-                //untuk melooping class yang memungkinkan
+                //untuk melooping class yang memungkinkan   
                 for (int y = 0; y < parent.Count; y++)
                 {
                     //untuk melooping data yang tersedia
