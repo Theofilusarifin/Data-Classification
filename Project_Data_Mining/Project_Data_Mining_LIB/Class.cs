@@ -11,12 +11,20 @@ namespace Project_Data_Mining_LIB
     {
         #region Fields
         private string id;
+        
+        private int jumlah; // untuk menghitung jumlah kelas
         #endregion
 
         #region Constructors
         public Class(string id)
         {
             this.Id = id;
+        }
+
+        public Class(string id, int jumlah)
+        {
+            this.Id = id;
+            this.Jumlah = jumlah;
         }
         #endregion
 
@@ -25,6 +33,11 @@ namespace Project_Data_Mining_LIB
         { 
             get => id; 
             set => id = value; 
+        }
+        public int Jumlah
+        {
+            get => jumlah;
+            set => jumlah = value;
         }
         #endregion
 
@@ -40,7 +53,7 @@ namespace Project_Data_Mining_LIB
 
         public static List<Class> BacaData()
         {
-            string sql = "select * from classes";
+            string sql = "select distinct id from classes";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -49,6 +62,23 @@ namespace Project_Data_Mining_LIB
             while (hasil.Read() == true)
             {
                 Class c = new Class(hasil.GetString(0));
+                listClass.Add(c);
+            }
+            return listClass;
+        }
+
+        public static List<Class> BacaData(string id)
+        {
+            string sql = "select id, count(id) from classes" +
+                         "where id = " + id;
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<Class> listClass = new List<Class>();
+
+            while (hasil.Read() == true)
+            {
+                Class c = new Class(hasil.GetString(0), int.Parse(hasil.GetString(1)));
                 listClass.Add(c);
             }
             return listClass;

@@ -51,6 +51,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormEntropy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntropy.Designer.cs">
+      <DependentUpon>FormEntropy.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGINI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDeveloper.resx">
       <DependentUpon>FormDeveloper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEntropy.resx">
+      <DependentUpon>FormEntropy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGINI.resx">
       <DependentUpon>FormGINI.cs</DependentUpon>

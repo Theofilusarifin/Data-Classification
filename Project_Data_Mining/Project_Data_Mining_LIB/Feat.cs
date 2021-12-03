@@ -73,7 +73,6 @@ namespace Project_Data_Mining_LIB
             if (jumlahDitambah == 0) return false;
             else return true;
         }
-
         #endregion
     }
 }

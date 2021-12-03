@@ -12,12 +12,15 @@ namespace Project_Data_Mining_LIB
         private string document_id;
         private List<Feat> listFeat; // Composition
 
+        #region Constructors
         public Data(string document_id)
         {
             this.Document_id = document_id;
             this.ListFeat = new List<Feat>();
         }
+        #endregion
 
+        #region Properties
         public string Document_id 
         { 
             get => document_id; 
@@ -28,6 +31,7 @@ namespace Project_Data_Mining_LIB
             get => listFeat; 
             private set => listFeat = value; 
         }
+        #endregion
 
         #region Method
         public static Boolean TambahData(Data d)

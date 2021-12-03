@@ -118,7 +118,7 @@ namespace Project_Data_Mining
             }
             #endregion
 
-            #region Supremum
+            #region Supreme
             if (radioButtonSupremum.Checked)
             {
                 for (int x = 0; x < DataClass.DataMemberCount; x++)

@@ -16,6 +16,7 @@ namespace Project_Data_Mining
         List<string> listClass = FormUtama.listClass;
         List<Data> listData = Data.BacaData();
         List<Dataset> listDs = new List<Dataset>();
+
         #region Method
         public static double CountGiniFString(List<string> Feat, List<string> parent, List<Dataset> dataSet, int curFeat)
         {
@@ -250,6 +251,7 @@ namespace Project_Data_Mining
         }
 
         #endregion
+
         public FormGINI()
         {
             InitializeComponent();
