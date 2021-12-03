@@ -76,6 +76,8 @@ namespace Project_Data_Mining
                 DataTable dt = new DataTable();
                 theDataAdapter.Fill(dt);
                 this.dataGridView.DataSource = dt.DefaultView;
+                this.dataGridView.AllowUserToAddRows = false;
+                this.dataGridView.ReadOnly = true;
             }
             catch (Exception ex)
             {
