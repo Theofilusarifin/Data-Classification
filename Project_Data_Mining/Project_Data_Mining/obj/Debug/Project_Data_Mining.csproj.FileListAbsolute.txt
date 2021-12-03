@@ -85,3 +85,5 @@ D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormResult.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Zstandard.Net.dll
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormDeveloper.resources
+C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormHelp.resources

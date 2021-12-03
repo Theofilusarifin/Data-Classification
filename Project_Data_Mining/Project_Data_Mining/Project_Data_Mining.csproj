@@ -51,6 +51,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>db.settings</DependentUpon>
     </Compile>
+    <Compile Include="FormDeveloper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeveloper.Designer.cs">
+      <DependentUpon>FormDeveloper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelp.Designer.cs">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInputFeatNumber.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDeveloper.resx">
+      <DependentUpon>FormDeveloper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHelp.resx">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInputFeatNumber.resx">
       <DependentUpon>FormInputFeatNumber.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +169,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Button_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Utama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

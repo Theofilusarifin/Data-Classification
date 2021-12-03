@@ -48,7 +48,7 @@ namespace Project_Data_Mining
             this.buttonSubmit.ForeColor = System.Drawing.Color.White;
             this.buttonSubmit.Location = new System.Drawing.Point(34, 137);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(363, 37);
+            this.buttonSubmit.Size = new System.Drawing.Size(310, 37);
             this.buttonSubmit.TabIndex = 8;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = false;
@@ -71,14 +71,14 @@ namespace Project_Data_Mining
             // 
             this.numericUpDownFeatNumber.Location = new System.Drawing.Point(243, 48);
             this.numericUpDownFeatNumber.Name = "numericUpDownFeatNumber";
-            this.numericUpDownFeatNumber.Size = new System.Drawing.Size(145, 20);
+            this.numericUpDownFeatNumber.Size = new System.Drawing.Size(101, 20);
             this.numericUpDownFeatNumber.TabIndex = 12;
             // 
             // numericUpDownClassNumber
             // 
             this.numericUpDownClassNumber.Location = new System.Drawing.Point(243, 89);
             this.numericUpDownClassNumber.Name = "numericUpDownClassNumber";
-            this.numericUpDownClassNumber.Size = new System.Drawing.Size(145, 20);
+            this.numericUpDownClassNumber.Size = new System.Drawing.Size(101, 20);
             this.numericUpDownClassNumber.TabIndex = 14;
             // 
             // label2
@@ -97,7 +97,7 @@ namespace Project_Data_Mining
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(443, 215);
+            this.ClientSize = new System.Drawing.Size(387, 215);
             this.Controls.Add(this.numericUpDownClassNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDownFeatNumber);
@@ -108,6 +108,7 @@ namespace Project_Data_Mining
             this.Name = "FormInputFeatNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormInputFeatNumber";
+            this.Load += new System.EventHandler(this.FormInputFeatNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).EndInit();
             this.ResumeLayout(false);

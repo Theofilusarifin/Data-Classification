@@ -45,9 +45,9 @@ namespace Project_Data_Mining
                     MessageBox.Show("Data telah berhasil disimpan", "Informasi");
 
                     FormUploadData frm = new FormUploadData(); //Create Object
-                    frm.Owner = this;
+                    frm.Owner = this.Owner;
                     frm.Show();
-                    this.Hide();
+                    this.Close();
                 }
                 else
                 {
@@ -70,5 +70,10 @@ namespace Project_Data_Mining
             buttonSubmit.BackgroundImage = Properties.Resources.Button_Leave;
         }
         #endregion
+
+        private void FormInputFeatNumber_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
