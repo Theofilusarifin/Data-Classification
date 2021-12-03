@@ -87,3 +87,11 @@ C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_D
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormDeveloper.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormHelp.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormDeveloper.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormHelp.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormInputFeatNumber.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormLoading.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormMain.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormResult.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormUploadData.resources
+D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.Properties.FormGINI.resources
