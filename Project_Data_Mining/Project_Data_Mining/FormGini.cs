@@ -15,10 +15,9 @@ namespace Project_Data_Mining
     {
         List<string> listClass = FormUtama.listClass;
         List<Data> listData = Data.BacaData();
-        List<Dataset> listDs = new List<Dataset>();
 
         #region Method
-        public static double CountGiniFString(List<string> Feat, List<string> parent, List<Dataset> dataSet, int curFeat)
+        public static double CountGiniFString(List<string> Feat, List<string> parent, List<string> listFeats, List<string> listClass, int curFeat)
         {
             int count = 0;
             double probabilityNow, GINI = 0;
@@ -29,67 +28,15 @@ namespace Project_Data_Mining
                 for (int y = 0; y < parent.Count; y++)
                 {
                     //looping semua data yang ada
-                    for (int z = 0; z < dataSet.Count; z++)
+                    for (int z = 0; z < listFeats.Count; z++)
                     {
-                        //ketika method dipanggil di region feat1
-                        if (curFeat == 1)
+                        //cek apakah data ini sama dengan feat yang dicari
+                        if (listFeats[z] == Feat[x])
                         {
-                            //cek apakah data ini sama dengan feat yang dicari
-                            if (dataSet[z].Feat1.ToString() == Feat[x])
+                            //cek apakah sesuai dengan parent
+                            if (listClass[z] == parent[y])
                             {
-                                //cek apakah sesuai dengan parent
-                                if (dataSet[z].Classes == parent[y])
-                                {
-                                    count++;
-                                }
-                            }
-                        }
-                        if (curFeat == 2)
-                        {
-                            //cek apakah data ini sama dengan feat yang dicari
-                            if (dataSet[z].Feat2.ToString() == Feat[x])
-                            {
-                                //cek apakah sesuai dengan parent
-                                if (dataSet[z].Classes == parent[y])
-                                {
-                                    count++;
-                                }
-                            }
-                        }
-                        if (curFeat == 3)
-                        {
-                            //cek apakah data ini sama dengan feat yang dicari
-                            if (dataSet[z].Feat3.ToString() == Feat[x])
-                            {
-                                //cek apakah sesuai dengan parent
-                                if (dataSet[z].Classes == parent[y])
-                                {
-                                    count++;
-                                }
-                            }
-                        }
-                        if (curFeat == 4)
-                        {
-                            //cek apakah data ini sama dengan feat yang dicari
-                            if (dataSet[z].Feat4.ToString() == Feat[x])
-                            {
-                                //cek apakah sesuai dengan parent
-                                if (dataSet[z].Classes == parent[y])
-                                {
-                                    count++;
-                                }
-                            }
-                        }
-                        if (curFeat == 5)
-                        {
-                            //cek apakah data ini sama dengan feat yang dicari
-                            if (dataSet[z].Feat5.ToString() == Feat[x])
-                            {
-                                //cek apakah sesuai dengan parent
-                                if (dataSet[z].Classes == parent[y])
-                                {
-                                    count++;
-                                }
+                                count++;
                             }
                         }
                     }
@@ -102,13 +49,13 @@ namespace Project_Data_Mining
                 }
                 //hitung GINI opsi
                 double GINIOpt = 1 - probabilityCum;//sudah benar hasilnya;
-                GINI += double.Parse(Feat[x + 1]) / dataSet.Count * GINIOpt;
+                GINI += double.Parse(Feat[x + 1]) / listFeats.Count * GINIOpt;
                 //bersihkan probalitycum
                 probabilityCum = 0;
             }
             return Math.Round(GINI, 2);
         }
-        public static double CountGiniFNum(List<string> Feat, List<string> parent, List<Dataset> dataSet, int curFeat)
+        public static double CountGiniFNum(List<string> Feat, List<string> parent, List<string> listFeats, List<string> listClass , int curFeat)
         {
             int min = 0;
             int max = 0;
@@ -122,39 +69,11 @@ namespace Project_Data_Mining
                 {
                     median = (int)(double.Parse(Feat[x]) + double.Parse(Feat[x + 2])) / 2;
                     featNum.Add(median);
-                    for (int y = 0; y < dataSet.Count; y++)
+                    for (int y = 0; y < listFeats.Count; y++)
                     {
-                        if (curFeat == 1)
+                        if (curFeat == y)
                         {
-                            if (int.Parse(dataSet[y].Feat1.ToString()) < median)
-                                min++;
-                            else
-                                max++;
-                        }
-                        if (curFeat == 2)
-                        {
-                            if (int.Parse(dataSet[y].Feat2.ToString()) < median)
-                                min++;
-                            else
-                                max++;
-                        }
-                        if (curFeat == 3)
-                        {
-                            if (int.Parse(dataSet[y].Feat3.ToString()) < median)
-                                min++;
-                            else
-                                max++;
-                        }
-                        if (curFeat == 4)
-                        {
-                            if (int.Parse(dataSet[y].Feat4.ToString()) < median)
-                                min++;
-                            else
-                                max++;
-                        }
-                        if (curFeat == 5)
-                        {
-                            if (int.Parse(dataSet[y].Feat5.ToString()) < median)
+                            if (int.Parse(listFeats[y]) < median)
                                 min++;
                             else
                                 max++;
@@ -179,46 +98,14 @@ namespace Project_Data_Mining
                 for (int y = 0; y < parent.Count; y++)
                 {
                     //untuk melooping data yang tersedia
-                    for (int z = 0; z < dataSet.Count; z++)
+                    for (int z = 0; z < listFeats.Count; z++)
                     {
-                        if (dataSet[z].Classes == parent[y])
+                        if (listClass[z] == parent[y])
                         {
                             //ketika memanggil method f1 check jika parentnya sudah sesuai
-                            if (curFeat == 1)
+                            if (curFeat == z)
                             {
-                                if (int.Parse(dataSet[z].Feat1.ToString()) < featNum[x])
-                                    //menambahkan jika sudah cocok semua
-                                    DataMin++;
-                                else
-                                    DataMax++;
-                            }
-                            if (curFeat == 2)
-                            {
-                                if (int.Parse(dataSet[z].Feat2.ToString()) < featNum[x])
-                                    //menambahkan jika sudah cocok semua
-                                    DataMin++;
-                                else
-                                    DataMax++;
-                            }
-                            if (curFeat == 3)
-                            {
-                                if (int.Parse(dataSet[z].Feat3.ToString()) < featNum[x])
-                                    //menambahkan jika sudah cocok semua
-                                    DataMin++;
-                                else
-                                    DataMax++;
-                            }
-                            if (curFeat == 4)
-                            {
-                                if (int.Parse(dataSet[z].Feat4.ToString()) < featNum[x])
-                                    //menambahkan jika sudah cocok semua
-                                    DataMin++;
-                                else
-                                    DataMax++;
-                            }
-                            if (curFeat == 5)
-                            {
-                                if (int.Parse(dataSet[z].Feat5.ToString()) < featNum[x])
+                                if (int.Parse(listFeats[z]) < featNum[x])
                                     //menambahkan jika sudah cocok semua
                                     DataMin++;
                                 else
@@ -238,7 +125,7 @@ namespace Project_Data_Mining
                 //hitung opsi Gini
                 OPTGiniMax = 1 - ProbCumMax;
                 OPTGiniMin = 1 - ProbCumMin;
-                gini = (double)(featNum[x + 1]) / dataSet.Count * OPTGiniMin + (double)(featNum[x + 2]) / dataSet.Count * OPTGiniMax;
+                gini = (double)(featNum[x + 1]) / listFeats.Count * OPTGiniMin + (double)(featNum[x + 2]) / listFeats.Count * OPTGiniMax;
                 //check apakah bernilai terkecil
                 if (gini < finGini)
                 {
@@ -277,6 +164,7 @@ namespace Project_Data_Mining
             double gini = 0;
             var feat = listClass.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
             List<string> listfeat = new List<string>();
+            List<string> listFeats = FormUtama.listClass;
             foreach (var x in feat)
             {
                 listfeat.Add(x.Value.ToString());
@@ -286,11 +174,11 @@ namespace Project_Data_Mining
             {
                 if (double.TryParse(listData[i].ListFeat.ToString(), out double check) == true)
                 {
-                    gini = CountGiniFNum(listfeat, listDocClass, listDs, (FormUtama.featNumber));
+                    gini = CountGiniFNum(listfeat, listDocClass, listFeats, listClass,i);
                 }
                 else
                 {
-                    gini = CountGiniFString(listfeat, listDocClass, listDs, (FormUtama.featNumber));
+                    gini = CountGiniFString(listfeat, listDocClass, listFeats, listClass,i);
                 }
                 listBoxInfo.Items.Add("GINI Feat " + (i + 1) + " : " + gini);
             }
@@ -304,11 +192,11 @@ namespace Project_Data_Mining
             {
                 if (double.TryParse(listData[i].ListFeat.ToString(), out double check) == true)
                 {
-                    gini = CountGiniFNum(listfeat, listDocClass, listDs, (FormUtama.featNumber));
+                    gini = CountGiniFNum(listfeat, listDocClass, listFeats, listClass, i);
                 }
                 else
                 {
-                    gini = CountGiniFString(listfeat, listDocClass, listDs, (FormUtama.featNumber));
+                    gini = CountGiniFString(listfeat, listDocClass, listFeats, listClass,i);
                 }
                 marking = i;
                 gain = 1 - gini;
@@ -316,7 +204,7 @@ namespace Project_Data_Mining
                 if (gain > bestGain)
                     bestGain = gain;
             }
-            for (int z = 0; z < 5; z++)
+            for (int z = 0; z < listfeat.Count; z++)
             {
                 if (z == marking)
                 {

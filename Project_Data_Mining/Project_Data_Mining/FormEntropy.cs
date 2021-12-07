@@ -28,12 +28,12 @@ namespace Project_Data_Mining
 
         private void FormEntropy_Load(object sender, EventArgs e)
         {
-            listDistinctClass = Class.BacaData();
+            //listDistinctClass = Class.BacaData();
 
-            foreach(Class kelas in listDistinctClass)
-            {
-                listClass = Class.BacaData(kelas.Id);
-            }
+            //foreach(Class kelas in listDistinctClass)
+            //{
+            //    listClass = Class.BacaData(kelas.Id);
+            //}
         }
 
         private void buttonCalculate_Click(object sender, EventArgs e)
