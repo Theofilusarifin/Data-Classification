@@ -144,7 +144,7 @@ namespace Project_Data_Mining
             this.MaximizeBox = false;
             this.Name = "FormUploadData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUploadData";
+            this.Text = "Upload Data";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

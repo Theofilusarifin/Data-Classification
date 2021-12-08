@@ -44,7 +44,7 @@ namespace Project_Data_Mining
         #region MenuStrip
         private void approximityMatrixToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormResult frm = new FormResult(); //Create Object
+            FormApproxityMatrix frm = new FormApproxityMatrix(); //Create Object
             frm.Owner = this.Owner;
             frm.Show();
             this.Close();

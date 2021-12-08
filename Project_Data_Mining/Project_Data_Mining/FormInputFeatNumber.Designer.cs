@@ -29,32 +29,14 @@ namespace Project_Data_Mining
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownFeatNumber = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownClassNumber = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonSubmit
-            // 
-            this.buttonSubmit.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSubmit.BackgroundImage = global::Project_Data_Mining.Properties.Resources.Button_Leave;
-            this.buttonSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
-            this.buttonSubmit.ForeColor = System.Drawing.Color.White;
-            this.buttonSubmit.Location = new System.Drawing.Point(34, 137);
-            this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(310, 37);
-            this.buttonSubmit.TabIndex = 8;
-            this.buttonSubmit.Text = "Submit";
-            this.buttonSubmit.UseVisualStyleBackColor = false;
-            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
-            this.buttonSubmit.MouseEnter += new System.EventHandler(this.buttonSubmit_MouseEnter);
-            this.buttonSubmit.MouseLeave += new System.EventHandler(this.buttonSubmit_MouseLeave);
             // 
             // label1
             // 
@@ -92,6 +74,24 @@ namespace Project_Data_Mining
             this.label2.TabIndex = 13;
             this.label2.Text = "Input Class Number :";
             // 
+            // buttonSubmit
+            // 
+            this.buttonSubmit.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSubmit.BackgroundImage = global::Project_Data_Mining.Properties.Resources.Button_Leave;
+            this.buttonSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.buttonSubmit.ForeColor = System.Drawing.Color.White;
+            this.buttonSubmit.Location = new System.Drawing.Point(34, 137);
+            this.buttonSubmit.Name = "buttonSubmit";
+            this.buttonSubmit.Size = new System.Drawing.Size(310, 37);
+            this.buttonSubmit.TabIndex = 8;
+            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.UseVisualStyleBackColor = false;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
+            this.buttonSubmit.MouseEnter += new System.EventHandler(this.buttonSubmit_MouseEnter);
+            this.buttonSubmit.MouseLeave += new System.EventHandler(this.buttonSubmit_MouseLeave);
+            // 
             // FormInputFeatNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,7 +107,7 @@ namespace Project_Data_Mining
             this.MaximizeBox = false;
             this.Name = "FormInputFeatNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormInputFeatNumber";
+            this.Text = "Input Number";
             this.Load += new System.EventHandler(this.FormInputFeatNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).EndInit();

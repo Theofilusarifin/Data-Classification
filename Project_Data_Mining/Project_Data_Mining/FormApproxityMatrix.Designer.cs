@@ -1,7 +1,7 @@
 ﻿
 namespace Project_Data_Mining
 {
-    partial class FormResult
+    partial class FormApproxityMatrix
     {
         /// <summary>
         /// Required designer variable.
@@ -155,7 +155,7 @@ namespace Project_Data_Mining
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Methods";
             // 
-            // FormResult
+            // FormApproxityMatrix
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,9 +166,9 @@ namespace Project_Data_Mining
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FormResult";
+            this.Name = "FormApproxityMatrix";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormResult";
+            this.Text = "Approxity Matrix";
             this.Load += new System.EventHandler(this.FormResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);

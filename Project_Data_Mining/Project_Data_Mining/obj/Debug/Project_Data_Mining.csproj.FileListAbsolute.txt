@@ -81,7 +81,6 @@ D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\ZstdNet.dll
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.exe.config
 D:\Kuliah\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormResult.resources
-C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormResult.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Zstandard.Net.dll
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormDeveloper.resources
@@ -97,3 +96,4 @@ D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\
 D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormEntropy.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormEntropy.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormGINI.resources
+C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormApproxityMatrix.resources

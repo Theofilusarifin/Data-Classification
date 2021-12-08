@@ -38,7 +38,7 @@ namespace Project_Data_Mining
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormHelp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormHelp";
+            this.Text = "Help";
             this.ResumeLayout(false);
 
         }

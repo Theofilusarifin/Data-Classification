@@ -112,7 +112,7 @@ namespace Project_Data_Mining
             this.MaximizeBox = false;
             this.Name = "FormUtama";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUtama";
+            this.Text = "Cluster Analysis";
             this.Load += new System.EventHandler(this.FormUtama_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDev)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHelp)).EndInit();

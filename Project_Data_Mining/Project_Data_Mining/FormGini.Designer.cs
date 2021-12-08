@@ -30,11 +30,11 @@ namespace Project_Data_Mining
         private void InitializeComponent()
         {
             this.listBoxInfo = new System.Windows.Forms.ListBox();
-            this.buttonCalculate = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.approximityMatrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entropyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonCalculate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,24 +47,6 @@ namespace Project_Data_Mining
             this.listBoxInfo.Name = "listBoxInfo";
             this.listBoxInfo.Size = new System.Drawing.Size(611, 364);
             this.listBoxInfo.TabIndex = 1;
-            // 
-            // buttonCalculate
-            // 
-            this.buttonCalculate.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCalculate.BackgroundImage = global::Project_Data_Mining.Properties.Resources.Button_Leave;
-            this.buttonCalculate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
-            this.buttonCalculate.ForeColor = System.Drawing.Color.White;
-            this.buttonCalculate.Location = new System.Drawing.Point(489, 451);
-            this.buttonCalculate.Name = "buttonCalculate";
-            this.buttonCalculate.Size = new System.Drawing.Size(160, 37);
-            this.buttonCalculate.TabIndex = 9;
-            this.buttonCalculate.Text = "Calculate";
-            this.buttonCalculate.UseVisualStyleBackColor = false;
-            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
-            this.buttonCalculate.MouseEnter += new System.EventHandler(this.buttonCalculate_MouseEnter);
-            this.buttonCalculate.MouseLeave += new System.EventHandler(this.buttonCalculate_MouseLeave);
             // 
             // menuStrip1
             // 
@@ -102,6 +84,24 @@ namespace Project_Data_Mining
             this.entropyToolStripMenuItem.Text = "Entropy";
             this.entropyToolStripMenuItem.Click += new System.EventHandler(this.entropyToolStripMenuItem_Click);
             // 
+            // buttonCalculate
+            // 
+            this.buttonCalculate.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCalculate.BackgroundImage = global::Project_Data_Mining.Properties.Resources.Button_Leave;
+            this.buttonCalculate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.buttonCalculate.ForeColor = System.Drawing.Color.White;
+            this.buttonCalculate.Location = new System.Drawing.Point(489, 451);
+            this.buttonCalculate.Name = "buttonCalculate";
+            this.buttonCalculate.Size = new System.Drawing.Size(160, 37);
+            this.buttonCalculate.TabIndex = 9;
+            this.buttonCalculate.Text = "Calculate";
+            this.buttonCalculate.UseVisualStyleBackColor = false;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
+            this.buttonCalculate.MouseEnter += new System.EventHandler(this.buttonCalculate_MouseEnter);
+            this.buttonCalculate.MouseLeave += new System.EventHandler(this.buttonCalculate_MouseLeave);
+            // 
             // FormGINI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,7 +113,7 @@ namespace Project_Data_Mining
             this.Controls.Add(this.listBoxInfo);
             this.Name = "FormGINI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormGINI";
+            this.Text = "Gini";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -36,7 +36,7 @@ namespace Project_Data_Mining
             if (panelLoading.Width >= 533)
             {
                 timerLoading.Stop();
-                FormResult frm = new FormResult(); //Create Object
+                FormApproxityMatrix frm = new FormApproxityMatrix(); //Create Object
                 frm.Owner = this.Owner;
                 frm.Show();
                 this.Hide();

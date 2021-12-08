@@ -11,9 +11,9 @@ using Project_Data_Mining_LIB;
 
 namespace Project_Data_Mining
 {
-    public partial class FormResult : Form
+    public partial class FormApproxityMatrix : Form
     {
-        public FormResult()
+        public FormApproxityMatrix()
         {
             InitializeComponent();
         }
