@@ -62,9 +62,10 @@ namespace Project_Data_Mining
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(107, 160);
+            this.pictureBoxLogo.Image = global::Project_Data_Mining.Properties.Resources.Loading;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(161, 191);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(267, 111);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(183, 39);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 4;
             this.pictureBoxLogo.TabStop = false;
