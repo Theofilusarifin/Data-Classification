@@ -37,8 +37,8 @@ namespace Project_Data_Mining
             this.approximityMatrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entropyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonCalculate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonCalculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -46,6 +46,7 @@ namespace Project_Data_Mining
             // 
             // dataGridView
             // 
+            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(34, 222);
             this.dataGridView.Name = "dataGridView";
@@ -124,6 +125,19 @@ namespace Project_Data_Mining
             this.entropyToolStripMenuItem.Text = "Entropy";
             this.entropyToolStripMenuItem.Click += new System.EventHandler(this.entropyToolStripMenuItem_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButtonManhattan);
+            this.groupBox1.Controls.Add(this.radioButtonEuclidean);
+            this.groupBox1.Controls.Add(this.radioButtonSupremum);
+            this.groupBox1.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.groupBox1.Location = new System.Drawing.Point(34, 49);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(619, 82);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Methods";
+            // 
             // buttonCalculate
             // 
             this.buttonCalculate.BackColor = System.Drawing.Color.Transparent;
@@ -141,19 +155,6 @@ namespace Project_Data_Mining
             this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             this.buttonCalculate.MouseEnter += new System.EventHandler(this.buttonCalculate_MouseEnter);
             this.buttonCalculate.MouseLeave += new System.EventHandler(this.buttonCalculate_MouseLeave);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButtonManhattan);
-            this.groupBox1.Controls.Add(this.radioButtonEuclidean);
-            this.groupBox1.Controls.Add(this.radioButtonSupremum);
-            this.groupBox1.Font = new System.Drawing.Font("Montserrat", 9.749999F);
-            this.groupBox1.Location = new System.Drawing.Point(34, 49);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(619, 82);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Methods";
             // 
             // FormApproxityMatrix
             // 

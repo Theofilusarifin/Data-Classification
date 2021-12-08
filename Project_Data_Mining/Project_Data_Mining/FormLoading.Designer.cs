@@ -62,6 +62,7 @@ namespace Project_Data_Mining
             // 
             // pictureBoxLogo
             // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.Image = global::Project_Data_Mining.Properties.Resources.Loading;
             this.pictureBoxLogo.Location = new System.Drawing.Point(161, 191);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
@@ -74,9 +75,11 @@ namespace Project_Data_Mining
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(527, 424);
             this.Controls.Add(this.panelBackground);
             this.Controls.Add(this.pictureBoxLogo);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLoading";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
