@@ -40,7 +40,6 @@ C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_D
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\Project_Data_Mining_LIB.pdb
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\bin\Debug\MySql.Data.xml
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.csproj.AssemblyReference.cache
-C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormMain.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormUtama.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.Properties.Resources.resources
 C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.csproj.GenerateResource.cache
@@ -96,3 +95,5 @@ D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\
 D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormUploadData.resources
 D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormGINI.resources
 D:\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormEntropy.resources
+C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormEntropy.resources
+C:\Users\asus\Documents\GitHub\project_data_mining\Project_Data_Mining\Project_Data_Mining\obj\Debug\Project_Data_Mining.FormGINI.resources

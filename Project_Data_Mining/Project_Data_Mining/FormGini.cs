@@ -213,5 +213,40 @@ namespace Project_Data_Mining
             }
             #endregion
         }
+
+        #region MenuStrip
+        private void approximityMatrixToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormResult frm = new FormResult(); //Create Object
+            frm.Owner = this.Owner;
+            frm.Show();
+            this.Close();
+        }
+        private void giniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //FormGINI frm = new FormGINI(); //Create Object
+            //frm.Owner = this.Owner;
+            //frm.Show();
+            //this.Close();
+        }
+        private void entropyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEntropy frm = new FormEntropy(); //Create Object
+            frm.Owner = this.Owner;
+            frm.Show();
+            this.Close();
+        }
+        #endregion
+
+        #region DesainButton
+        private void buttonCalculate_MouseEnter(object sender, EventArgs e)
+        {
+            buttonCalculate.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonCalculate_MouseLeave(object sender, EventArgs e)
+        {
+            buttonCalculate.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
     }
 }
