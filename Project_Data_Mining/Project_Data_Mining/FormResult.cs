@@ -27,6 +27,9 @@ namespace Project_Data_Mining
 
             //Menambah kolom di datagridview
             dataGridView.Columns.Add("Document_id", "Document_id");
+            dataGridView.Columns["Document_id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView.Columns["Document_id"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
             foreach (Data d in listData)
             {
                 dataGridView.Columns.Add(d.Document_id, d.Document_id);
@@ -36,6 +39,7 @@ namespace Project_Data_Mining
             foreach (Data d in listData)
             {
                 dataGridView.Columns[d.Document_id].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView.Columns[d.Document_id].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
@@ -83,56 +87,63 @@ namespace Project_Data_Mining
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            //Kosongi isi datagridview
-            dataGridView.Rows.Clear();
-            List<double> Feat1 = new List<double>();
-            List<double> Feat2 = new List<double>();
-
-            #region Manhattan
-            if (radioButtonManhattan.Checked)
+            try
             {
-                for (int row = 0; row < listData.Count; row++)
+                //Kosongi isi datagridview
+                dataGridView.Rows.Clear();
+                List<double> Feat1 = new List<double>();
+                List<double> Feat2 = new List<double>();
+
+                #region Manhattan
+                if (radioButtonManhattan.Checked)
                 {
-                    this.dataGridView.Rows.Add();
-                    dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                    for (int col = 0; col < listData.Count; col++)
+                    for (int row = 0; row < listData.Count; row++)
                     {
-                        dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        this.dataGridView.Rows.Add();
+                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                        for (int col = 0; col < listData.Count; col++)
+                        {
+                            dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        }
                     }
                 }
-            }
-            #endregion
+                #endregion
 
-            #region Euclidean
-            if (radioButtonEuclidean.Checked)
-            {
-                for (int row = 0; row < listData.Count; row++)
+                #region Euclidean
+                if (radioButtonEuclidean.Checked)
                 {
-                    this.dataGridView.Rows.Add();
-                    dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                    for (int col = 0; col < listData.Count; col++)
+                    for (int row = 0; row < listData.Count; row++)
                     {
-                        dataGridView.Rows[row].Cells[col + 1].Value = EuclideanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        this.dataGridView.Rows.Add();
+                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                        for (int col = 0; col < listData.Count; col++)
+                        {
+                            dataGridView.Rows[row].Cells[col + 1].Value = EuclideanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        }
                     }
                 }
-            }
-            #endregion
+                #endregion
 
-            #region Supreme
-            if (radioButtonSupremum.Checked)
-            {
-                for (int row = 0; row < listData.Count; row++)
+                #region Supremum
+                if (radioButtonSupremum.Checked)
                 {
-                    this.dataGridView.Rows.Add();
-                    dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                    for (int col = 0; col < listData.Count; col++)
+                    for (int row = 0; row < listData.Count; row++)
                     {
-                        dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        this.dataGridView.Rows.Add();
+                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                        for (int col = 0; col < listData.Count; col++)
+                        {
+                            dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(listData[row], listData[col], FormUtama.featNumber);
+                        }
                     }
+
                 }
-                
+                #endregion
             }
-            #endregion
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Kesalahan");
+            }
         }
 
         #region MenuStrip

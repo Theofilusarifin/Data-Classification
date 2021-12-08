@@ -49,6 +49,7 @@ namespace Project_Data_Mining
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(34, 222);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(619, 260);
             this.dataGridView.TabIndex = 0;
             // 
@@ -137,6 +138,7 @@ namespace Project_Data_Mining
             this.buttonCalculate.TabIndex = 8;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = false;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             this.buttonCalculate.MouseEnter += new System.EventHandler(this.buttonCalculate_MouseEnter);
             this.buttonCalculate.MouseLeave += new System.EventHandler(this.buttonCalculate_MouseLeave);
             // 

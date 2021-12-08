@@ -62,6 +62,7 @@ namespace Project_Data_Mining
             this.buttonCalculate.TabIndex = 9;
             this.buttonCalculate.Text = "Calculate";
             this.buttonCalculate.UseVisualStyleBackColor = false;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
             this.buttonCalculate.MouseEnter += new System.EventHandler(this.buttonCalculate_MouseEnter);
             this.buttonCalculate.MouseLeave += new System.EventHandler(this.buttonCalculate_MouseLeave);
             // 

@@ -64,7 +64,6 @@ namespace Project_Data_Mining_LIB
                     Feat f = new Feat(d, c, hasil_join.GetInt32(1), hasil_join.GetString(2));
                     d.ListFeat.Add(f);
                 }
-
                 listData.Add(d);
             }
             return listData;

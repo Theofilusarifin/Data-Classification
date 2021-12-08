@@ -140,6 +140,8 @@ namespace Project_Data_Mining
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.buttonBrowse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormUploadData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUploadData";
