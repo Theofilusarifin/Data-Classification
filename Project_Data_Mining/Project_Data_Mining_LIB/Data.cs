@@ -45,7 +45,7 @@ namespace Project_Data_Mining_LIB
 
         public static List<Data> BacaData()
         {
-            string sql = "select * from datas";
+            string sql = "select * from datas order by document_id ";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

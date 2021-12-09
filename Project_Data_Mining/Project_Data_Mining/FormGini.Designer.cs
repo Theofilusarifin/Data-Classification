@@ -45,7 +45,7 @@ namespace Project_Data_Mining
             this.listBoxInfo.ItemHeight = 18;
             this.listBoxInfo.Location = new System.Drawing.Point(38, 61);
             this.listBoxInfo.Name = "listBoxInfo";
-            this.listBoxInfo.Size = new System.Drawing.Size(611, 364);
+            this.listBoxInfo.Size = new System.Drawing.Size(661, 364);
             this.listBoxInfo.TabIndex = 1;
             // 
             // menuStrip1
@@ -56,7 +56,7 @@ namespace Project_Data_Mining
             this.entropyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(688, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(739, 26);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +92,7 @@ namespace Project_Data_Mining
             this.buttonCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonCalculate.ForeColor = System.Drawing.Color.White;
-            this.buttonCalculate.Location = new System.Drawing.Point(489, 451);
+            this.buttonCalculate.Location = new System.Drawing.Point(539, 451);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(160, 37);
             this.buttonCalculate.TabIndex = 9;
@@ -108,11 +108,13 @@ namespace Project_Data_Mining
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(688, 515);
+            this.ClientSize = new System.Drawing.Size(739, 515);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.listBoxInfo);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormGINI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gini";

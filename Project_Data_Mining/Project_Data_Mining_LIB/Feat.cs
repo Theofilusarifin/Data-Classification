@@ -73,10 +73,23 @@ namespace Project_Data_Mining_LIB
             if (jumlahDitambah == 0) return false;
             else return true;
         }
-
-        public static List<string> AmbilData(string kriteria, string nilai)
+        public static int AmbilParent(string class_id)
         {
-            string sql = "select distinct nilai from feats where " + kriteria + " = '" + nilai + "'";
+            string sql = "select count(distinct(document_id)) from feats where class_id = '" + class_id + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            int banyakData = 0;
+
+            while (hasil.Read() == true)
+            {
+                banyakData = hasil.GetInt32(0);
+            }
+            return banyakData;
+        }
+        public static List<string> AmbilData(int feat_id)
+        {
+            string sql = "select distinct nilai from feats where feat_id = " + feat_id;
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -89,9 +102,9 @@ namespace Project_Data_Mining_LIB
             return listData;
         }
 
-        public static int HitungData(string kriteria, string nilai)
+        public static int HitungData(int feat_id, string class_id, string nilai)
         {
-            string sql = "select count(*) from feats where " + kriteria + " = '" + nilai + "'";
+            string sql = "select count(distinct(document_id)) from feats where feat_id = " + feat_id + " and class_id = '" + class_id + "' and nilai = '" + nilai + "'";
 
             MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

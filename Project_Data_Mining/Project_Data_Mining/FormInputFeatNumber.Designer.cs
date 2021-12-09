@@ -105,6 +105,7 @@ namespace Project_Data_Mining
             this.Controls.Add(this.buttonSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormInputFeatNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Input Number";

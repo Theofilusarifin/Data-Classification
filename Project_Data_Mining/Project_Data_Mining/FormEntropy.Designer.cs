@@ -45,7 +45,7 @@ namespace Project_Data_Mining
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(38, 61);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(611, 364);
+            this.dataGridView1.Size = new System.Drawing.Size(661, 364);
             this.dataGridView1.TabIndex = 0;
             // 
             // menuStrip1
@@ -56,7 +56,7 @@ namespace Project_Data_Mining
             this.entropyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(688, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(739, 26);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +92,7 @@ namespace Project_Data_Mining
             this.buttonCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonCalculate.ForeColor = System.Drawing.Color.White;
-            this.buttonCalculate.Location = new System.Drawing.Point(489, 451);
+            this.buttonCalculate.Location = new System.Drawing.Point(539, 451);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(160, 37);
             this.buttonCalculate.TabIndex = 10;
@@ -107,10 +107,12 @@ namespace Project_Data_Mining
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(688, 515);
+            this.ClientSize = new System.Drawing.Size(739, 515);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormEntropy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entropy";

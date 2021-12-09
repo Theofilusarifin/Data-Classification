@@ -51,7 +51,7 @@ namespace Project_Data_Mining
             this.dataGridView.Location = new System.Drawing.Point(34, 222);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(619, 260);
+            this.dataGridView.Size = new System.Drawing.Size(668, 260);
             this.dataGridView.TabIndex = 0;
             // 
             // radioButtonManhattan
@@ -59,7 +59,7 @@ namespace Project_Data_Mining
             this.radioButtonManhattan.AutoSize = true;
             this.radioButtonManhattan.Checked = true;
             this.radioButtonManhattan.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.radioButtonManhattan.Location = new System.Drawing.Point(78, 31);
+            this.radioButtonManhattan.Location = new System.Drawing.Point(77, 31);
             this.radioButtonManhattan.Name = "radioButtonManhattan";
             this.radioButtonManhattan.Size = new System.Drawing.Size(117, 26);
             this.radioButtonManhattan.TabIndex = 2;
@@ -71,7 +71,7 @@ namespace Project_Data_Mining
             // 
             this.radioButtonEuclidean.AutoSize = true;
             this.radioButtonEuclidean.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.radioButtonEuclidean.Location = new System.Drawing.Point(255, 31);
+            this.radioButtonEuclidean.Location = new System.Drawing.Point(284, 31);
             this.radioButtonEuclidean.Name = "radioButtonEuclidean";
             this.radioButtonEuclidean.Size = new System.Drawing.Size(108, 26);
             this.radioButtonEuclidean.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace Project_Data_Mining
             // 
             this.radioButtonSupremum.AutoSize = true;
             this.radioButtonSupremum.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonSupremum.Location = new System.Drawing.Point(430, 31);
+            this.radioButtonSupremum.Location = new System.Drawing.Point(471, 31);
             this.radioButtonSupremum.Name = "radioButtonSupremum";
             this.radioButtonSupremum.Size = new System.Drawing.Size(121, 26);
             this.radioButtonSupremum.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace Project_Data_Mining
             this.entropyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(688, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(739, 26);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,7 +133,7 @@ namespace Project_Data_Mining
             this.groupBox1.Font = new System.Drawing.Font("Montserrat", 9.749999F);
             this.groupBox1.Location = new System.Drawing.Point(34, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(619, 82);
+            this.groupBox1.Size = new System.Drawing.Size(668, 82);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Methods";
@@ -146,7 +146,7 @@ namespace Project_Data_Mining
             this.buttonCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonCalculate.ForeColor = System.Drawing.Color.White;
-            this.buttonCalculate.Location = new System.Drawing.Point(264, 160);
+            this.buttonCalculate.Location = new System.Drawing.Point(291, 161);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(160, 37);
             this.buttonCalculate.TabIndex = 8;
@@ -161,12 +161,14 @@ namespace Project_Data_Mining
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(688, 515);
+            this.ClientSize = new System.Drawing.Size(739, 515);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "FormApproxityMatrix";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Approxity Matrix";
