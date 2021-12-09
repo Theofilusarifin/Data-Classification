@@ -45,6 +45,9 @@ namespace Project_Data_Mining
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
+            dataGridView.AllowUserToResizeColumns = false;
+            dataGridView.AllowUserToResizeRows = false;
+
         }
 
         private double ManhattanCalculation(Data d1, Data d2, int featNumber)

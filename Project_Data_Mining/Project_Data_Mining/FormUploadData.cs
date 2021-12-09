@@ -79,11 +79,27 @@ namespace Project_Data_Mining
                 this.dataGridView.AllowUserToAddRows = false;
                 this.dataGridView.ReadOnly = true;
 
+                int i = 0;
                 foreach (DataGridViewColumn column in dataGridView.Columns)
                 {
+                    if (i == 0)
+                    {
+                        column.HeaderText = "Document ID"; 
+                    }
+                    else if (i == FormUtama.featNumber+1)
+                    {
+                        column.HeaderText = "Class";
+                    }
+                    else
+                    {
+                        column.HeaderText = "Feat " + i.ToString();
+                    }
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                    i++;
                 }
+                dataGridView.AllowUserToResizeColumns = false;
+                dataGridView.AllowUserToResizeRows = false;
             }
             catch (Exception ex)
             {
@@ -95,38 +111,46 @@ namespace Project_Data_Mining
         {
             try
             {
-                // Melakukan iterasi sesuai banyaknya data
-                for (int rows = 0; rows < dataGridView.Rows.Count; rows++)
+                if (dataGridView.Rows.Count != 0)
                 {
-                    //Membuat data baru yang ada pada col 0
-                    Data d = new Data(dataGridView.Rows[rows].Cells[0].Value.ToString());
-                    //Menambahkan data ke database
-                    Data.TambahData(d);
 
-                    //Membuat class yang ada pada col terakhir
-                    Class c = new Class(dataGridView.Rows[rows].Cells[FormUtama.featNumber + 1].Value.ToString());
-                    // Check apakah class baru atau bukan
-                    if (!FormUtama.listClass.Contains(c.Id))
+                    // Melakukan iterasi sesuai banyaknya data
+                    for (int rows = 0; rows < dataGridView.Rows.Count; rows++)
                     {
-                        //Tambah data class ke database
-                        Class.TambahData(c);
-                        //Tambah data class ke list
-                        FormUtama.listClass.Add(c.Id);
-                    }
+                        //Membuat data baru yang ada pada col 0
+                        Data d = new Data(dataGridView.Rows[rows].Cells[0].Value.ToString());
+                        //Menambahkan data ke database
+                        Data.TambahData(d);
 
-                    // Melakukan iterasi di col 1-featnumber
-                    for (int column = 1; column <= FormUtama.featNumber; column++)
-                    {
-                        // Membuat feat baru ke database
-                        Feat f = new Feat(d, c, column, dataGridView.Rows[rows].Cells[column].Value.ToString());
-                        // Menambahkan feat
-                        Feat.TambahData(f);
+                        //Membuat class yang ada pada col terakhir
+                        Class c = new Class(dataGridView.Rows[rows].Cells[FormUtama.featNumber + 1].Value.ToString());
+                        // Check apakah class baru atau bukan
+                        if (!FormUtama.listClass.Contains(c.Id))
+                        {
+                            //Tambah data class ke database
+                            Class.TambahData(c);
+                            //Tambah data class ke list
+                            FormUtama.listClass.Add(c.Id);
+                        }
+
+                        // Melakukan iterasi di col 1-featnumber
+                        for (int column = 1; column <= FormUtama.featNumber; column++)
+                        {
+                            // Membuat feat baru ke database
+                            Feat f = new Feat(d, c, column, dataGridView.Rows[rows].Cells[column].Value.ToString());
+                            // Menambahkan feat
+                            Feat.TambahData(f);
+                        }
                     }
+                    FormLoading frm = new FormLoading(); //Create Object
+                    frm.Owner = this;
+                    frm.Show();
+                    this.Hide();
                 }
-                FormLoading frm = new FormLoading(); //Create Object
-                frm.Owner = this;
-                frm.Show();
-                this.Hide();
+                else
+                {
+                    MessageBox.Show("Import data terlebih dahulu!", "Peringatab");
+                }
             }
             catch (Exception ex)
             {
