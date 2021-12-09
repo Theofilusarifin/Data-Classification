@@ -50,6 +50,31 @@ namespace Project_Data_Mining
 
         }
 
+        private bool CheckAvailability()
+        {
+            for (int row = 0; row < listData.Count; row++)
+            {
+                for (int col = 0; col < listData.Count; col++)
+                {
+                    for (int i = 0; i < FormUtama.featNumber; i++)
+                    {
+                        double num1;
+                        double num2;
+                        if (double.TryParse(listData[row].ListFeat[i].Nilai, out num1) && double.TryParse(listData[col].ListFeat[i].Nilai, out num2))
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kalkulasi gagal karena terdapat nilai feat yang bukan angka", "Error");
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
         private double ManhattanCalculation(Data d1, Data d2, int featNumber)
         {
             double result = 0;
@@ -92,56 +117,59 @@ namespace Project_Data_Mining
         {
             try
             {
-                //Kosongi isi datagridview
-                dataGridView.Rows.Clear();
-                List<double> Feat1 = new List<double>();
-                List<double> Feat2 = new List<double>();
-
-                #region Manhattan
-                if (radioButtonManhattan.Checked)
+                if (CheckAvailability())
                 {
-                    for (int row = 0; row < listData.Count; row++)
+                    //Kosongi isi datagridview
+                    dataGridView.Rows.Clear();
+                    List<double> Feat1 = new List<double>();
+                    List<double> Feat2 = new List<double>();
+
+                    #region Manhattan
+                    if (radioButtonManhattan.Checked)
                     {
-                        this.dataGridView.Rows.Add();
-                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                        for (int col = 0; col < listData.Count; col++)
+                        for (int row = 0; row < listData.Count; row++)
                         {
-                            dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                            this.dataGridView.Rows.Add();
+                            dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                            for (int col = 0; col < listData.Count; col++)
+                            {
+                                dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                            }
                         }
                     }
-                }
-                #endregion
+                    #endregion
 
-                #region Euclidean
-                if (radioButtonEuclidean.Checked)
-                {
-                    for (int row = 0; row < listData.Count; row++)
+                    #region Euclidean
+                    if (radioButtonEuclidean.Checked)
                     {
-                        this.dataGridView.Rows.Add();
-                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                        for (int col = 0; col < listData.Count; col++)
+                        for (int row = 0; row < listData.Count; row++)
                         {
-                            dataGridView.Rows[row].Cells[col + 1].Value = EuclideanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                            this.dataGridView.Rows.Add();
+                            dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                            for (int col = 0; col < listData.Count; col++)
+                            {
+                                dataGridView.Rows[row].Cells[col + 1].Value = EuclideanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                            }
                         }
                     }
-                }
-                #endregion
+                    #endregion
 
-                #region Supremum
-                if (radioButtonSupremum.Checked)
-                {
-                    for (int row = 0; row < listData.Count; row++)
+                    #region Supremum
+                    if (radioButtonSupremum.Checked)
                     {
-                        this.dataGridView.Rows.Add();
-                        dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                        for (int col = 0; col < listData.Count; col++)
+                        for (int row = 0; row < listData.Count; row++)
                         {
-                            dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(listData[row], listData[col], FormUtama.featNumber);
+                            this.dataGridView.Rows.Add();
+                            dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
+                            for (int col = 0; col < listData.Count; col++)
+                            {
+                                dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(listData[row], listData[col], FormUtama.featNumber);
+                            }
                         }
-                    }
 
+                    }
+                    #endregion
                 }
-                #endregion
             }
             catch (Exception ex)
             {
