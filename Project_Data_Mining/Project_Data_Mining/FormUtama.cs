@@ -78,7 +78,7 @@ namespace Project_Data_Mining
             Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS classes;");
             Koneksi.JalankanPerintahDML("CREATE TABLE datas (document_id VARCHAR(50) NOT NULL, PRIMARY KEY (document_id));");
             Koneksi.JalankanPerintahDML("CREATE TABLE classes (id VARCHAR(50) NOT NULL, PRIMARY KEY (id))");
-            Koneksi.JalankanPerintahDML("CREATE TABLE feats (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id VARCHAR(50) NOT NULL, class_id VARCHAR(50) NOT NULL, feat_id INT NULL, nilai VARCHAR(50) NULL, PRIMARY KEY (id), INDEX fk_feats_datas_idx (document_id ASC), INDEX fk_feats_classes1_idx (class_id ASC), CONSTRAINT fk_feats_datas FOREIGN KEY (document_id) REFERENCES project_data_mining.datas (document_id) ON DELETE NO ACTION ON UPDATE NO ACTION, CONSTRAINT fk_feats_classes1 FOREIGN KEY (class_id) REFERENCES project_data_mining.classes (id) ON DELETE NO ACTION ON UPDATE NO ACTION)");
+            Koneksi.JalankanPerintahDML("CREATE TABLE feats (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id VARCHAR(50) NOT NULL, class_id VARCHAR(50) NOT NULL, feat_id INT NULL, nilai VARCHAR(50) NULL, PRIMARY KEY (id), INDEX fk_feats_datas_idx (document_id ASC), INDEX fk_feats_classes1_idx (class_id ASC), CONSTRAINT fk_feats_datas FOREIGN KEY (document_id) REFERENCES datas (document_id) ON DELETE NO ACTION ON UPDATE NO ACTION, CONSTRAINT fk_feats_classes1 FOREIGN KEY (class_id) REFERENCES classes (id) ON DELETE NO ACTION ON UPDATE NO ACTION)");
 
             //Buka Form
             Form form = Application.OpenForms["FormInputFeatNumber"];

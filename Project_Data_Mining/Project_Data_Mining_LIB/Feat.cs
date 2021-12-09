@@ -73,6 +73,36 @@ namespace Project_Data_Mining_LIB
             if (jumlahDitambah == 0) return false;
             else return true;
         }
+
+        public static List<string> AmbilData(string kriteria, string nilai)
+        {
+            string sql = "select distinct nilai from feats where " + kriteria + " = '" + nilai + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<string> listData = new List<string>();
+
+            while (hasil.Read() == true)
+            {
+                listData.Add(hasil.GetString(0));
+            }
+            return listData;
+        }
+
+        public static int HitungData(string kriteria, string nilai)
+        {
+            string sql = "select count(*) from feats where " + kriteria + " = '" + nilai + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            int banyakData = 0;
+
+            while (hasil.Read() == true)
+            {
+                banyakData = hasil.GetInt32(0);
+            }
+            return banyakData;
+        }
         #endregion
     }
 }
