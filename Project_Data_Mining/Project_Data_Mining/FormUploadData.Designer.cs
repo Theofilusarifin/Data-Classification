@@ -51,7 +51,7 @@ namespace Project_Data_Mining
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView.Location = new System.Drawing.Point(38, 114);
+            this.dataGridView.Location = new System.Drawing.Point(38, 127);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(667, 216);
             this.dataGridView.TabIndex = 8;
@@ -60,19 +60,19 @@ namespace Project_Data_Mining
             // 
             this.textBoxFileName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxFileName.Location = new System.Drawing.Point(127, 47);
+            this.textBoxFileName.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFileName.Location = new System.Drawing.Point(127, 35);
             this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(578, 26);
+            this.textBoxFileName.Size = new System.Drawing.Size(578, 27);
             this.textBoxFileName.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(34, 49);
+            this.label1.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.label1.Location = new System.Drawing.Point(34, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.Size = new System.Drawing.Size(87, 22);
             this.label1.TabIndex = 10;
             this.label1.Text = "File Path :";
             // 
@@ -84,7 +84,7 @@ namespace Project_Data_Mining
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(736, 288);
+            this.buttonSave.Location = new System.Drawing.Point(736, 306);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(160, 37);
             this.buttonSave.TabIndex = 7;
@@ -102,7 +102,7 @@ namespace Project_Data_Mining
             this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonImport.ForeColor = System.Drawing.Color.White;
-            this.buttonImport.Location = new System.Drawing.Point(736, 109);
+            this.buttonImport.Location = new System.Drawing.Point(736, 127);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(160, 37);
             this.buttonImport.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace Project_Data_Mining
             this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonBrowse.ForeColor = System.Drawing.Color.White;
-            this.buttonBrowse.Location = new System.Drawing.Point(736, 40);
+            this.buttonBrowse.Location = new System.Drawing.Point(736, 35);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(160, 37);
             this.buttonBrowse.TabIndex = 0;
@@ -133,19 +133,20 @@ namespace Project_Data_Mining
             // comboBoxSheet
             // 
             this.comboBoxSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSheet.Font = new System.Drawing.Font("Montserrat", 12F);
             this.comboBoxSheet.FormattingEnabled = true;
             this.comboBoxSheet.Location = new System.Drawing.Point(127, 79);
             this.comboBoxSheet.Name = "comboBoxSheet";
-            this.comboBoxSheet.Size = new System.Drawing.Size(93, 21);
+            this.comboBoxSheet.Size = new System.Drawing.Size(93, 30);
             this.comboBoxSheet.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(53, 77);
+            this.label2.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.label2.Location = new System.Drawing.Point(56, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(65, 22);
             this.label2.TabIndex = 12;
             this.label2.Text = "Sheet :";
             // 
@@ -154,7 +155,7 @@ namespace Project_Data_Mining
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(944, 369);
+            this.ClientSize = new System.Drawing.Size(924, 399);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxSheet);
             this.Controls.Add(this.label1);

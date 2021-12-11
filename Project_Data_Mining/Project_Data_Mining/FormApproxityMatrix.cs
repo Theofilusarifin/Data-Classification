@@ -17,8 +17,6 @@ namespace Project_Data_Mining
         {
             InitializeComponent();
         }
-        List<Data> listData = new List<Data>();
-
         #region Methods
         private void FormatDataGrid()
         {
@@ -30,13 +28,13 @@ namespace Project_Data_Mining
             dataGridView.Columns["Document_id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView.Columns["Document_id"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            foreach (Data d in listData)
+            foreach (Data d in FormUtama.listData)
             {
                 dataGridView.Columns.Add(d.Document_id, d.Document_id);
             }
 
             //Agar lebar kolom dapat menyesuaikan panjang / isi data
-            foreach (Data d in listData)
+            foreach (Data d in FormUtama.listData)
             {
                 dataGridView.Columns[d.Document_id].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView.Columns[d.Document_id].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -52,15 +50,15 @@ namespace Project_Data_Mining
 
         private bool CheckAvailability()
         {
-            for (int row = 0; row < listData.Count; row++)
+            for (int row = 0; row < FormUtama.listData.Count; row++)
             {
-                for (int col = 0; col < listData.Count; col++)
+                for (int col = 0; col < FormUtama.listData.Count; col++)
                 {
                     for (int i = 0; i < FormUtama.featNumber; i++)
                     {
                         double num1;
                         double num2;
-                        if (double.TryParse(listData[row].ListFeat[i].Nilai, out num1) && double.TryParse(listData[col].ListFeat[i].Nilai, out num2))
+                        if (double.TryParse(FormUtama.listData[row].ListFeat[i].Nilai, out num1) && double.TryParse(FormUtama.listData[col].ListFeat[i].Nilai, out num2))
                         {
 
                         }
@@ -109,7 +107,11 @@ namespace Project_Data_Mining
 
         private void FormResult_Load(object sender, EventArgs e)
         {
-            listData = Data.BacaData();
+            if (!FormUtama.dataReaded)
+            {
+                FormUtama.listData = Data.BacaData();
+                FormUtama.dataReaded = true;
+            }
             FormatDataGrid();
         }
 
@@ -127,13 +129,13 @@ namespace Project_Data_Mining
                     #region Manhattan
                     if (radioButtonManhattan.Checked)
                     {
-                        for (int row = 0; row < listData.Count; row++)
+                        for (int row = 0; row < FormUtama.listData.Count; row++)
                         {
                             this.dataGridView.Rows.Add();
-                            dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                            for (int col = 0; col < listData.Count; col++)
+                            dataGridView.Rows[row].Cells[0].Value = FormUtama.listData[row].Document_id;
+                            for (int col = 0; col < FormUtama.listData.Count; col++)
                             {
-                                dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                                dataGridView.Rows[row].Cells[col + 1].Value = ManhattanCalculation(FormUtama.listData[row], FormUtama.listData[col], FormUtama.featNumber);
                             }
                         }
                     }
@@ -142,13 +144,13 @@ namespace Project_Data_Mining
                     #region Euclidean
                     if (radioButtonEuclidean.Checked)
                     {
-                        for (int row = 0; row < listData.Count; row++)
+                        for (int row = 0; row < FormUtama.listData.Count; row++)
                         {
                             this.dataGridView.Rows.Add();
-                            dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                            for (int col = 0; col < listData.Count; col++)
+                            dataGridView.Rows[row].Cells[0].Value = FormUtama.listData[row].Document_id;
+                            for (int col = 0; col < FormUtama.listData.Count; col++)
                             {
-                                dataGridView.Rows[row].Cells[col + 1].Value = EuclideanCalculation(listData[row], listData[col], FormUtama.featNumber);
+                                dataGridView.Rows[row].Cells[col + 1].Value = EuclideanCalculation(FormUtama.listData[row], FormUtama.listData[col], FormUtama.featNumber);
                             }
                         }
                     }
@@ -157,13 +159,13 @@ namespace Project_Data_Mining
                     #region Supremum
                     if (radioButtonSupremum.Checked)
                     {
-                        for (int row = 0; row < listData.Count; row++)
+                        for (int row = 0; row < FormUtama.listData.Count; row++)
                         {
                             this.dataGridView.Rows.Add();
-                            dataGridView.Rows[row].Cells[0].Value = listData[row].Document_id;
-                            for (int col = 0; col < listData.Count; col++)
+                            dataGridView.Rows[row].Cells[0].Value = FormUtama.listData[row].Document_id;
+                            for (int col = 0; col < FormUtama.listData.Count; col++)
                             {
-                                dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(listData[row], listData[col], FormUtama.featNumber);
+                                dataGridView.Rows[row].Cells[col + 1].Value = SupremumCalculation(FormUtama.listData[row], FormUtama.listData[col], FormUtama.featNumber);
                             }
                         }
 

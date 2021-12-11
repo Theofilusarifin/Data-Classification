@@ -109,7 +109,6 @@ namespace Project_Data_Mining
             this.Name = "FormInputFeatNumber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Input Number";
-            this.Load += new System.EventHandler(this.FormInputFeatNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFeatNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownClassNumber)).EndInit();
             this.ResumeLayout(false);

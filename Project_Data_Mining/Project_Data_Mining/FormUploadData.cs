@@ -122,7 +122,7 @@ namespace Project_Data_Mining
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Gagal Import. Pesan kesalahan : " + ex.Message, "Kesalahan");
             }
         }
 

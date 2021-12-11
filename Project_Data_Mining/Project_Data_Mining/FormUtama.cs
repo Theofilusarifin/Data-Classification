@@ -15,9 +15,20 @@ namespace Project_Data_Mining
     {
         public static Koneksi koneksi;
         public static int featNumber;
-        public static List<string> listClass = new List<string>();
         public static int classNumber;
 
+        // Untuk Aproximity Matrix
+        public static List<Data> listData = new List<Data>();
+        public static bool dataReaded = false;
+
+        // Untuk Gini
+        public static List<string> listClass = new List<string>();
+        public static List<double> listFeatGini = new List<double>();
+        public static List<double> listFeatGain = new List<double>();
+
+        public static int totalParent = 0;
+        public static double giniParent = 0;
+        public static bool giniCalculated = false;
 
         public FormUtama()
         {
@@ -72,29 +83,55 @@ namespace Project_Data_Mining
         #region Button
         private void buttonGetStarted_Click(object sender, EventArgs e)
         {
-            //Melakuan drop dan membuat kembali table pada database agar data kembali kosong
-            Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS feats;");
-            Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS datas;");
-            Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS classes;");
-            Koneksi.JalankanPerintahDML("CREATE TABLE datas (document_id VARCHAR(50) NOT NULL, PRIMARY KEY (document_id));");
-            Koneksi.JalankanPerintahDML("CREATE TABLE classes (id VARCHAR(50) NOT NULL, PRIMARY KEY (id))");
-            Koneksi.JalankanPerintahDML("CREATE TABLE feats (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id VARCHAR(50) NOT NULL, class_id VARCHAR(50) NOT NULL, feat_id INT NULL, nilai VARCHAR(50) NULL, PRIMARY KEY (id), INDEX fk_feats_datas_idx (document_id ASC), INDEX fk_feats_classes1_idx (class_id ASC), CONSTRAINT fk_feats_datas FOREIGN KEY (document_id) REFERENCES datas (document_id) ON DELETE NO ACTION ON UPDATE NO ACTION, CONSTRAINT fk_feats_classes1 FOREIGN KEY (class_id) REFERENCES classes (id) ON DELETE NO ACTION ON UPDATE NO ACTION)");
-
-            //Buka Form
-            Form form = Application.OpenForms["FormInputFeatNumber"];
-
-            if (form == null) //Jika Form ini belum di-create sebelumnya
+            try
             {
-                FormInputFeatNumber frm = new FormInputFeatNumber(); //Create Object FormInputFeatNumber
-                frm.Owner = this; //Set form utama menjadi parent dari objek form yang dibuat
-                frm.ShowDialog(); //Tampilkan form
-                // Method ShowDialog() tidak bisa digunakan jika menerapkan MdiParent, bisanya Method Show();
-                frm.BringToFront(); //Agar form tampil di depan
+                // Reset Variabel
+
+                // Global
+                featNumber = 0;
+                classNumber = 0;
+
+                // Untuk Aproximity Matrix
+                listData.Clear();
+                dataReaded = false;
+
+                // Untuk Gini
+                listClass.Clear();
+                listFeatGain.Clear();
+                listFeatGini.Clear();
+                totalParent = 0;
+                giniParent = 0;
+                giniCalculated = false;
+
+
+                //Melakuan drop dan membuat kembali table pada database agar data kembali kosong
+                Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS feats;");
+                Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS datas;");
+                Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS classes;");
+                Koneksi.JalankanPerintahDML("CREATE TABLE datas (document_id VARCHAR(50) NOT NULL, PRIMARY KEY (document_id));");
+                Koneksi.JalankanPerintahDML("CREATE TABLE classes (id VARCHAR(50) NOT NULL, PRIMARY KEY (id))");
+                Koneksi.JalankanPerintahDML("CREATE TABLE feats (id INT UNSIGNED NOT NULL AUTO_INCREMENT, document_id VARCHAR(50) NOT NULL, class_id VARCHAR(50) NOT NULL, feat_id INT NULL, nilai VARCHAR(50) NULL, PRIMARY KEY (id), INDEX fk_feats_datas_idx (document_id ASC), INDEX fk_feats_classes1_idx (class_id ASC), CONSTRAINT fk_feats_datas FOREIGN KEY (document_id) REFERENCES datas (document_id) ON DELETE NO ACTION ON UPDATE NO ACTION, CONSTRAINT fk_feats_classes1 FOREIGN KEY (class_id) REFERENCES classes (id) ON DELETE NO ACTION ON UPDATE NO ACTION)");
+
+                //Buka Form
+                Form form = Application.OpenForms["FormInputFeatNumber"];
+
+                if (form == null) //Jika Form ini belum di-create sebelumnya
+                {
+                    FormInputFeatNumber frm = new FormInputFeatNumber(); //Create Object FormInputFeatNumber
+                    frm.Owner = this; //Set form utama menjadi parent dari objek form yang dibuat
+                    frm.ShowDialog(); //Tampilkan form
+                                      // Method ShowDialog() tidak bisa digunakan jika menerapkan MdiParent, bisanya Method Show();
+                    frm.BringToFront(); //Agar form tampil di depan
+                }
+                else
+                {
+                    form.Show();
+                    form.BringToFront(); //Agar form tampil di depan
+                }
             }
-            else
+            catch (Exception ex)
             {
-                form.Show();
-                form.BringToFront(); //Agar form tampil di depan
+                MessageBox.Show("Terjadi Error. Pesan Kesalahan : " + ex.Message);
             }
         }
         #endregion

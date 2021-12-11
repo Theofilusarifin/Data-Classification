@@ -70,10 +70,5 @@ namespace Project_Data_Mining
             buttonSubmit.BackgroundImage = Properties.Resources.Button_Leave;
         }
         #endregion
-
-        private void FormInputFeatNumber_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

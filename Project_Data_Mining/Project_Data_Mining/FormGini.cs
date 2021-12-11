@@ -225,77 +225,80 @@ namespace Project_Data_Mining
                     // Clear listbox
                     listBoxInfo.Items.Clear();
 
-                    // Class Parent Calculation
-                    List<int> listParentCount = new List<int>();
-                    for (int cNum = 0; cNum < FormUtama.classNumber; cNum++)
+                    if (!FormUtama.giniCalculated)
                     {
-                        int count = Feat.AmbilParent(FormUtama.listClass[cNum]);
-                        listParentCount.Add(count);
-                    }
-                    int totalParent = listParentCount.Sum();
+                        // Class Parent Calculation
+                        List<int> listParentCount = new List<int>();
+                        for (int cNum = 0; cNum < FormUtama.classNumber; cNum++)
+                        {
+                            int count = Feat.AmbilParent(FormUtama.listClass[cNum]);
+                            listParentCount.Add(count);
+                        }
+                        FormUtama.totalParent = listParentCount.Sum();
 
-                    // Gini Parent Calculation
-                    double giniParent = 1;
-                    foreach (int cCount in listParentCount)
-                    {
-                        double temp = Math.Pow(((double)cCount / (double)totalParent), 2);
-                        giniParent -= temp;
+                        // Gini Parent Calculation
+                        FormUtama.giniParent = 1;
+                        foreach (int cCount in listParentCount)
+                        {
+                            double temp = Math.Pow(((double)cCount / (double)FormUtama.totalParent), 2);
+                            FormUtama.giniParent -= temp;
+                        }
                     }
-
+                    
                     // Tampilkan gini ke listbox
-                    listBoxInfo.Items.Add("Gini Parent : " + giniParent);
+                    listBoxInfo.Items.Add("Gini Parent : " + FormUtama.giniParent);
 
                     // Foreach Feat Gini Calculation
-                    List<double> listFeatGini = new List<double>();
-                    List<double> listFeatGain = new List<double>();
                     for (int fnum = 1; fnum <= FormUtama.featNumber; fnum++)
                     {
-                        List<string> listParameter = Feat.AmbilData(fnum);
-                        double M = 0;
-                        foreach (string parameter in listParameter)
+                        if (!FormUtama.giniCalculated)
                         {
-                            List<int> listDataCount = new List<int>();
-                            foreach (string cl in FormUtama.listClass)
+                            List<string> listParameter = Feat.AmbilData(fnum);
+                            double M = 0;
+                            foreach (string parameter in listParameter)
                             {
-                                int dataCount = Feat.HitungData(fnum, cl, parameter);
-                                listDataCount.Add(dataCount);
-                            }
-                            int totalData = listDataCount.Sum();
+                                List<int> listDataCount = new List<int>();
+                                foreach (string cl in FormUtama.listClass)
+                                {
+                                    int dataCount = Feat.HitungData(fnum, cl, parameter);
+                                    listDataCount.Add(dataCount);
+                                }
+                                int totalData = listDataCount.Sum();
 
-                            // Gini on parameter fnum calculation
-                            double giniFeat = 1;
-                            foreach (int dCount in listDataCount)
-                            {
-                                giniFeat -= Math.Pow(((double)dCount / (double)totalData), 2);
-                            }
+                                // Gini on parameter fnum calculation
+                                double giniFeat = 1;
+                                foreach (int dCount in listDataCount)
+                                {
+                                    giniFeat -= Math.Pow(((double)dCount / (double)totalData), 2);
+                                }
 
-                            M += (double)totalData / (double)totalParent * giniFeat;
+                                M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                            }
+                            FormUtama.listFeatGini.Add(M);
+
+                            double Gain = FormUtama.giniParent - M;
+                            FormUtama.listFeatGain.Add(Gain);
                         }
 
-                        // Tambahkan M ke list
-                        listFeatGini.Add(M);
+                        // Tambahkan M ke listbox
                         listBoxInfo.Items.Add("");
                         listBoxInfo.Items.Add("Feat " + fnum);
-                        listBoxInfo.Items.Add("Gini : " + M);
+                        listBoxInfo.Items.Add("Gini : " + FormUtama.listFeatGini[fnum-1].ToString());
 
-                        // Tambahkan gain ke list
-                        double Gain = giniParent - M;
-                        listFeatGain.Add(Gain);
-                        listBoxInfo.Items.Add("Gain : " + Gain);
+                        // Tambahkan gain ke listbox
+                        listBoxInfo.Items.Add("Gain : " + FormUtama.listFeatGain[fnum-1].ToString());
                     }
 
                     // Best Split
                     listBoxInfo.Items.Add("");
-                    double bestSplit = listFeatGain.Max();
-                    listBoxInfo.Items.Add("Best Split adalah Feat " + (listFeatGain.IndexOf(bestSplit) + 1).ToString() + " karena memiliki nilai gain terbesar diantara gain atribut yang lainnya");
+                    double bestSplit = FormUtama.listFeatGain.Max();
+                    listBoxInfo.Items.Add("Best Split adalah Feat " + (FormUtama.listFeatGain.IndexOf(bestSplit) + 1).ToString() + " karena memiliki nilai gain terbesar diantara nilai gain atribut lainnya");
+
+                    // Set supaya tidak ada perhitungan ulang
+                    FormUtama.giniCalculated = true;
 
                     // Set supaya ga bisa spam button
                     calculated = true;
-
-                    //Menghapus semua isi list
-                    listFeatGain.Clear();
-                    listFeatGini.Clear();
-                    listParentCount.Clear();
                 }
             }
             catch (Exception ex)
