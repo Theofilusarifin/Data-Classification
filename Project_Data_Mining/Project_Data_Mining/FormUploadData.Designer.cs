@@ -36,6 +36,8 @@ namespace Project_Data_Mining
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
             this.buttonBrowse = new System.Windows.Forms.Button();
+            this.comboBoxSheet = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@ namespace Project_Data_Mining
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView.Location = new System.Drawing.Point(38, 109);
+            this.dataGridView.Location = new System.Drawing.Point(38, 114);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(667, 216);
             this.dataGridView.TabIndex = 8;
@@ -58,19 +60,19 @@ namespace Project_Data_Mining
             // 
             this.textBoxFileName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFileName.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.textBoxFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxFileName.Location = new System.Drawing.Point(127, 47);
             this.textBoxFileName.Name = "textBoxFileName";
-            this.textBoxFileName.Size = new System.Drawing.Size(578, 27);
+            this.textBoxFileName.Size = new System.Drawing.Size(578, 26);
             this.textBoxFileName.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(34, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 22);
+            this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "File Path :";
             // 
@@ -128,12 +130,33 @@ namespace Project_Data_Mining
             this.buttonBrowse.MouseEnter += new System.EventHandler(this.buttonBrowse_MouseEnter);
             this.buttonBrowse.MouseLeave += new System.EventHandler(this.buttonBrowse_MouseLeave);
             // 
+            // comboBoxSheet
+            // 
+            this.comboBoxSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSheet.FormattingEnabled = true;
+            this.comboBoxSheet.Location = new System.Drawing.Point(127, 79);
+            this.comboBoxSheet.Name = "comboBoxSheet";
+            this.comboBoxSheet.Size = new System.Drawing.Size(93, 21);
+            this.comboBoxSheet.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(53, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Sheet :";
+            // 
             // FormUploadData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(944, 369);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBoxSheet);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxFileName);
             this.Controls.Add(this.dataGridView);
@@ -160,5 +183,7 @@ namespace Project_Data_Mining
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TextBox textBoxFileName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxSheet;
+        private System.Windows.Forms.Label label2;
     }
 }

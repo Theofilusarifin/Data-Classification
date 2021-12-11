@@ -13,6 +13,7 @@ namespace Project_Data_Mining
 {
     public partial class FormGINI : Form
     {
+        #region Tidak Digunakan
         //List<string> listClass = FormUtama.listClass;
         //List<Data> listData = Data.BacaData();
 
@@ -137,7 +138,7 @@ namespace Project_Data_Mining
         //    return Math.Round(finGini, 2);
         //}
 
-        //#endregion
+        #endregion
 
         public FormGINI()
         {
@@ -216,6 +217,7 @@ namespace Project_Data_Mining
             //}
             //#endregion
             #endregion
+
             try
             {
                 if (!calculated)
@@ -289,6 +291,11 @@ namespace Project_Data_Mining
 
                     // Set supaya ga bisa spam button
                     calculated = true;
+
+                    //Menghapus semua isi list
+                    listFeatGain.Clear();
+                    listFeatGini.Clear();
+                    listParentCount.Clear();
                 }
             }
             catch (Exception ex)

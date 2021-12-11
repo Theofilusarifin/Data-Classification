@@ -17,6 +17,7 @@ namespace Project_Data_Mining
 {
     public partial class FormUploadData : Form
     {
+        OleDbConnection theConnection;
         public FormUploadData()
         {
             InitializeComponent();
@@ -47,12 +48,32 @@ namespace Project_Data_Mining
                           //"Excel Workbook (.xlsx)|*.xlsx";
             fdlg.FilterIndex = 1;
             fdlg.RestoreDirectory = true;
+
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
                 textBoxFileName.Text = fdlg.FileName;
             }
-        }
+            
+            //buat ngambil sheet name di excel
+            List<string> sheetNames = GetExcelSheetNames(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"");
 
+            comboBoxSheet.DataSource = sheetNames;
+        }
+        List<string> GetExcelSheetNames(string connectionString)
+        {
+            theConnection = new OleDbConnection(connectionString);
+            theConnection.Open();
+            DataTable TableData = new DataTable();
+            TableData = theConnection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+            theConnection.Close();
+            List<string> sheetNames = new List<string>();
+            foreach (DataRow row in TableData.Rows)
+            {
+                sheetNames.Add(row["TABLE_NAME"].ToString());
+            }
+            return sheetNames;
+
+        }
         // To read the excel data into datagridview
         private void buttonImport_Click(object sender, EventArgs e)
         {
@@ -66,11 +87,9 @@ namespace Project_Data_Mining
 
                 //OleDbConnection theConnection = new OleDbConnection(strcon);
 
-                OleDbConnection theConnection = new OleDbConnection(@"provider=Microsoft.Jet.OLEDB.4.0;data source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"");
+                //OleDbConnection theConnection = new OleDbConnection(@"provider=Microsoft.Jet.OLEDB.4.0;data source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"");
 
-                theConnection.Open();
-
-                OleDbDataAdapter theDataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", theConnection);
+                OleDbDataAdapter theDataAdapter = new OleDbDataAdapter("Select * from["+comboBoxSheet.Text+"]", theConnection);
 
                 DataSet theSD = new DataSet();
                 DataTable dt = new DataTable();
@@ -149,7 +168,7 @@ namespace Project_Data_Mining
                 }
                 else
                 {
-                    MessageBox.Show("Import data terlebih dahulu!", "Peringatab");
+                    MessageBox.Show("Import data terlebih dahulu!", "Peringatan");
                 }
             }
             catch (Exception ex)
