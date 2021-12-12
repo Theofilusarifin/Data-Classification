@@ -38,26 +38,33 @@ namespace Project_Data_Mining
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = "Select File";
-            fdlg.FileName = textBoxFileName.Text;
-            // filter jenis/format file
-            // nama format file|format file|
-            fdlg.Filter = "All Files|*.*|" +
-                          "Excel 97-2003 Workbook (.xls)|*.xls";
-                          //"Excel Workbook (.xlsx)|*.xlsx";
-            fdlg.FilterIndex = 1;
-            fdlg.RestoreDirectory = true;
-
-            if (fdlg.ShowDialog() == DialogResult.OK)
+            try
             {
-                textBoxFileName.Text = fdlg.FileName;
-            }
-            
-            //buat ngambil sheet name di excel
-            List<string> sheetNames = GetExcelSheetNames(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"");
+                OpenFileDialog fdlg = new OpenFileDialog();
+                fdlg.Title = "Select File";
+                fdlg.FileName = textBoxFileName.Text;
+                // filter jenis/format file
+                // nama format file|format file|
+                fdlg.Filter = "All Files|*.*|" +
+                              "Excel 97-2003 Workbook (.xls)|*.xls";
+                              //"Excel Workbook (.xlsx)|*.xlsx";
+                fdlg.FilterIndex = 1;
+                fdlg.RestoreDirectory = true;
 
-            comboBoxSheet.DataSource = sheetNames;
+                if (fdlg.ShowDialog() == DialogResult.OK)
+                {
+                    textBoxFileName.Text = fdlg.FileName;
+                }
+            
+                //buat ngambil sheet name di excel
+                List<string> sheetNames = GetExcelSheetNames(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + textBoxFileName.Text + "';Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"");
+
+                comboBoxSheet.DataSource = sheetNames;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal Browse. Pesan kesalahan : " + ex.Message, "Kesalahan");
+            }
         }
         List<string> GetExcelSheetNames(string connectionString)
         {
@@ -72,7 +79,6 @@ namespace Project_Data_Mining
                 sheetNames.Add(row["TABLE_NAME"].ToString());
             }
             return sheetNames;
-
         }
         // To read the excel data into datagridview
         private void buttonImport_Click(object sender, EventArgs e)
