@@ -255,29 +255,36 @@ namespace Project_Data_Mining
                         {
                             List<string> listParameter = Feat.AmbilData(fnum);
                             double M = 0;
-                            foreach (string parameter in listParameter)
+                            if (listParameter.Count > 5)
                             {
-                                List<int> listDataCount = new List<int>();
-                                foreach (string cl in FormUtama.listClass)
-                                {
-                                    int dataCount = Feat.HitungData(fnum, cl, parameter);
-                                    listDataCount.Add(dataCount);
-                                }
-                                int totalData = listDataCount.Sum();
-
-                                // Gini on parameter fnum calculation
-                                double giniFeat = 1;
-                                foreach (int dCount in listDataCount)
-                                {
-                                    giniFeat -= Math.Pow(((double)dCount / (double)totalData), 2);
-                                }
-
-                                M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                                throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + fnum.ToString() + " melebihi 5");
                             }
-                            FormUtama.listFeatGini.Add(M);
+                            else
+                            {
+                                foreach (string parameter in listParameter)
+                                {
+                                    List<int> listDataCount = new List<int>();
+                                    foreach (string cl in FormUtama.listClass)
+                                    {
+                                        int dataCount = Feat.HitungData(fnum, cl, parameter);
+                                        listDataCount.Add(dataCount);
+                                    }
+                                    int totalData = listDataCount.Sum();
 
-                            double Gain = FormUtama.giniParent - M;
-                            FormUtama.listFeatGain.Add(Gain);
+                                    // Gini on parameter fnum calculation
+                                    double giniFeat = 1;
+                                    foreach (int dCount in listDataCount)
+                                    {
+                                        giniFeat -= Math.Pow(((double)dCount / (double)totalData), 2);
+                                    }
+
+                                    M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                                }
+                                FormUtama.listFeatGini.Add(M);
+
+                                double Gain = FormUtama.giniParent - M;
+                                FormUtama.listFeatGain.Add(Gain);
+                            }
                         }
 
                         // Tambahkan M ke listbox

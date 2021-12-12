@@ -138,7 +138,6 @@ namespace Project_Data_Mining
             {
                 if (dataGridView.Rows.Count != 0)
                 {
-
                     // Melakukan iterasi sesuai banyaknya data
                     for (int rows = 0; rows < dataGridView.Rows.Count; rows++)
                     {

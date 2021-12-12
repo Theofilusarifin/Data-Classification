@@ -25,7 +25,6 @@ namespace Project_Data_Mining
         public static List<string> listClass = new List<string>();
         public static List<double> listFeatGini = new List<double>();
         public static List<double> listFeatGain = new List<double>();
-
         public static int totalParent = 0;
         public static double giniParent = 0;
         public static bool giniCalculated = false;
@@ -56,16 +55,6 @@ namespace Project_Data_Mining
             pictureBoxDev.Parent = panelBackground;
             pictureBoxHelp.Parent = panelBackground;
             this.BackgroundImage = Properties.Resources.Form_Utama;
-            try
-            {
-                //Ambil nilai di db setting
-                koneksi = new Koneksi();
-                //MessageBox.Show("Koneksi Berhasil");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Koneksi Gagal. Pesan Kesalahan : " + ex.Message);
-            }
         }
         #endregion
 
@@ -85,6 +74,9 @@ namespace Project_Data_Mining
         {
             try
             {
+                //Ambil nilai di db setting
+                koneksi = new Koneksi();
+
                 // Reset Variabel
 
                 // Global
