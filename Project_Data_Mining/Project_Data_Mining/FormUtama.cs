@@ -16,7 +16,9 @@ namespace Project_Data_Mining
         public static Koneksi koneksi;
         public static int featNumber;
         public static int classNumber;
+
         public static List<string> listClass = new List<string>();
+        public static int totalParent = 0;
 
         // Untuk Aproximity Matrix
         public static List<Data> listData = new List<Data>();
@@ -25,9 +27,8 @@ namespace Project_Data_Mining
         // Untuk Gini
         public static List<double> listFeatGini = new List<double>();
         public static List<double> listFeatGain = new List<double>();
-        public static int totalParent = 0;
-        public static double giniParent = 0;
         public static bool giniCalculated = false;
+        public static double giniParent = 0;
 
         // untuk Entropy
         public static List<double> listFeatEntropy = new List<double>();

@@ -20,7 +20,7 @@ namespace Project_Data_Mining
             InitializeComponent();
         }
 
-        bool calculated = false;
+        private bool calculated = false;
 
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
@@ -34,29 +34,30 @@ namespace Project_Data_Mining
                     if (!FormUtama.entropyCalculated)
                     {
                         // list untuk menampung banyak data per class
-                        List<int> banyakParent = new List<int>();
+                        List<int> dataPerClass = new List<int>();
                         // untuk setiap class
                         for (int cNum = 0; cNum < FormUtama.classNumber; cNum++)
                         {
                             // hitung banyak data per class
                             int count = Feat.AmbilParent(FormUtama.listClass[cNum]);
                             // masukkan hasil hitungan ke list
-                            banyakParent.Add(count);
+                            dataPerClass.Add(count);
                         }
                         // data di total
-                        FormUtama.totalParent = banyakParent.Sum();
+                        FormUtama.totalParent = dataPerClass.Sum();
 
+                        // hitung entropy dari parent
                         FormUtama.entropyParent = 0;
-                        foreach (int cCount in banyakParent)
+                        foreach (int cCount in dataPerClass)
                         {
                             double x = (double)cCount / (double)FormUtama.totalParent;
-                            double temp = (-x) * Math.Log((x), 2);
+                            double temp = (-x) * Math.Log(x, 2);
                             FormUtama.entropyParent += temp;
                         }
                     }
 
                     // Tampilkan entropy parent ke listbox
-                    listBoxInfo.Items.Add("Entropy Parent : " + FormUtama.giniParent);
+                    listBoxInfo.Items.Add("Entropy Parent : " + FormUtama.entropyParent);
 
                     for (int feat = 1; feat <= FormUtama.featNumber; feat++)
                     {
@@ -71,18 +72,18 @@ namespace Project_Data_Mining
                             }
                             else
                             {
-                                // untuk setia parameter di list
-                                foreach (string parameter in listParameter)
+                                // untuk setiap parameter di list
+                                foreach (string parameter in listParameter) //orange
                                 {
                                     List<int> listDataCount = new List<int>();
                                     // untuk setiap kelas
-                                    foreach (string kelas in FormUtama.listClass)
+                                    foreach (string kelas in FormUtama.listClass)//c0,c1
                                     {
                                         // menghitung data
                                         int dataCount = Feat.HitungData(feat, kelas, parameter);
                                         listDataCount.Add(dataCount);
                                     }
-                                    int totalData = listDataCount.Sum();
+                                    int totalData = listDataCount.Sum();//total orange
 
                                     // untuk setiap jumlah data di list
                                     double entropyFeat = 0;
