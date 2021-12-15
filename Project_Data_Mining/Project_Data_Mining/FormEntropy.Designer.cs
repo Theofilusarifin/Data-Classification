@@ -29,24 +29,14 @@ namespace Project_Data_Mining
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.approximityMatrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entropyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonCalculate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.listBoxInfo = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(661, 364);
-            this.dataGridView1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -56,31 +46,31 @@ namespace Project_Data_Mining
             this.entropyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(739, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // approximityMatrixToolStripMenuItem
             // 
-            this.approximityMatrixToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.approximityMatrixToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.approximityMatrixToolStripMenuItem.Name = "approximityMatrixToolStripMenuItem";
-            this.approximityMatrixToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.approximityMatrixToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
             this.approximityMatrixToolStripMenuItem.Text = "Approximity Matrix";
             this.approximityMatrixToolStripMenuItem.Click += new System.EventHandler(this.approximityMatrixToolStripMenuItem_Click);
             // 
             // giniToolStripMenuItem
             // 
-            this.giniToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.giniToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
             this.giniToolStripMenuItem.Name = "giniToolStripMenuItem";
-            this.giniToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
+            this.giniToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.giniToolStripMenuItem.Text = "Gini";
             this.giniToolStripMenuItem.Click += new System.EventHandler(this.giniToolStripMenuItem_Click);
             // 
             // entropyToolStripMenuItem
             // 
-            this.entropyToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F);
+            this.entropyToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
             this.entropyToolStripMenuItem.Name = "entropyToolStripMenuItem";
-            this.entropyToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
+            this.entropyToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.entropyToolStripMenuItem.Text = "Entropy";
             this.entropyToolStripMenuItem.Click += new System.EventHandler(this.entropyToolStripMenuItem_Click);
             // 
@@ -102,22 +92,30 @@ namespace Project_Data_Mining
             this.buttonCalculate.MouseEnter += new System.EventHandler(this.buttonCalculate_MouseEnter);
             this.buttonCalculate.MouseLeave += new System.EventHandler(this.buttonCalculate_MouseLeave);
             // 
+            // listBoxInfo
+            // 
+            this.listBoxInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
+            this.listBoxInfo.FormattingEnabled = true;
+            this.listBoxInfo.ItemHeight = 16;
+            this.listBoxInfo.Location = new System.Drawing.Point(39, 79);
+            this.listBoxInfo.Name = "listBoxInfo";
+            this.listBoxInfo.Size = new System.Drawing.Size(661, 356);
+            this.listBoxInfo.TabIndex = 12;
+            // 
             // FormEntropy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(739, 515);
+            this.Controls.Add(this.listBoxInfo);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.buttonCalculate);
-            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormEntropy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entropy";
-            this.Load += new System.EventHandler(this.FormEntropy_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -126,12 +124,11 @@ namespace Project_Data_Mining
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem approximityMatrixToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem giniToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entropyToolStripMenuItem;
+        private System.Windows.Forms.ListBox listBoxInfo;
     }
 }

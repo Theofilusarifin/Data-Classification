@@ -144,6 +144,7 @@ namespace Project_Data_Mining
         {
             InitializeComponent();
         }
+
         private bool calculated = false;
 
         #region Button
@@ -282,8 +283,8 @@ namespace Project_Data_Mining
                                 }
                                 FormUtama.listFeatGini.Add(M);
 
-                                double Gain = FormUtama.giniParent - M;
-                                FormUtama.listFeatGain.Add(Gain);
+                                double gain = FormUtama.giniParent - M;
+                                FormUtama.listFeatGain.Add(gain);
                             }
                         }
 

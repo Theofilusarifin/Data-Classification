@@ -16,18 +16,24 @@ namespace Project_Data_Mining
         public static Koneksi koneksi;
         public static int featNumber;
         public static int classNumber;
+        public static List<string> listClass = new List<string>();
 
         // Untuk Aproximity Matrix
         public static List<Data> listData = new List<Data>();
         public static bool dataReaded = false;
 
         // Untuk Gini
-        public static List<string> listClass = new List<string>();
         public static List<double> listFeatGini = new List<double>();
         public static List<double> listFeatGain = new List<double>();
         public static int totalParent = 0;
         public static double giniParent = 0;
         public static bool giniCalculated = false;
+
+        // untuk Entropy
+        public static List<double> listFeatEntropy = new List<double>();
+        public static List<double> listEntropyGain = new List<double>();
+        public static bool entropyCalculated = false;
+        public static double entropyParent = 0;
 
         public FormUtama()
         {
@@ -94,6 +100,8 @@ namespace Project_Data_Mining
                 totalParent = 0;
                 giniParent = 0;
                 giniCalculated = false;
+
+                // Untuk Entropy
 
 
                 //Melakuan drop dan membuat kembali table pada database agar data kembali kosong

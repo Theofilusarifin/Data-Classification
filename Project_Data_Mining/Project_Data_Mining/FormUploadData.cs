@@ -141,23 +141,23 @@ namespace Project_Data_Mining
                     // Melakukan iterasi sesuai banyaknya data
                     for (int rows = 0; rows < dataGridView.Rows.Count; rows++)
                     {
-                        //Membuat data baru yang ada pada col 0
+                        // Membuat data baru yang ada pada col 0
                         Data d = new Data(dataGridView.Rows[rows].Cells[0].Value.ToString());
-                        //Menambahkan data ke database
+                        // Menambahkan data ke database
                         Data.TambahData(d);
 
-                        //Membuat class yang ada pada col terakhir
+                        // Membuat class yang ada pada col terakhir
                         Class c = new Class(dataGridView.Rows[rows].Cells[FormUtama.featNumber + 1].Value.ToString());
                         // Check apakah class baru atau bukan
                         if (!FormUtama.listClass.Contains(c.Id))
                         {
-                            //Tambah data class ke database
+                            // Tambah data class ke database
                             Class.TambahData(c);
-                            //Tambah data class ke list
+                            // Tambah data class ke list
                             FormUtama.listClass.Add(c.Id);
                         }
 
-                        // Melakukan iterasi di col 1-featnumber
+                        // Melakukan iterasi di col 1 (featnumber)
                         for (int column = 1; column <= FormUtama.featNumber; column++)
                         {
                             // Membuat feat baru ke database

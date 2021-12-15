@@ -87,6 +87,7 @@ namespace Project_Data_Mining_LIB
             }
             return banyakData;
         }
+
         public static List<string> AmbilData(int feat_id)
         {
             string sql = "select distinct nilai from feats where feat_id = " + feat_id;
