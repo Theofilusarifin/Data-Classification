@@ -222,6 +222,7 @@ namespace Project_Data_Mining
                         // Tambahkan M ke listbox
                         listBoxInfo.Items.Add("");
                         listBoxInfo.Items.Add("Feat " + fnum);
+                        listBoxInfo.Items.Add("------------");
                         listBoxInfo.Items.Add("Gini: " + FormUtama.listFeatGini[fnum-1].ToString());
 
                         // Tambahkan gain ke listbox

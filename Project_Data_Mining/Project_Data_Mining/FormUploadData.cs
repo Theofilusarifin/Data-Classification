@@ -46,8 +46,8 @@ namespace Project_Data_Mining
                 // filter jenis/format file
                 // nama format file|format file|
                 fdlg.Filter = "All Files|*.*|" +
-                              "Excel 97-2003 Workbook (.xls)|*.xls";
-                              //"Excel Workbook (.xlsx)|*.xlsx";
+                              "Excel 97-2003 Workbook (.xls)|*.xls|" +
+                              "Excel Workbook (.xlsx)|*.xlsx";
                 fdlg.FilterIndex = 1;
                 fdlg.RestoreDirectory = true;
 

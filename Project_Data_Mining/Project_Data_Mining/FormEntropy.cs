@@ -92,175 +92,209 @@ namespace Project_Data_Mining
                         {
                             List<string> listParameter = Feat.AmbilData(feat);
                             double sigma = 0;
-                            // kalau isi listParameter lebih dari 5
-                            if (listParameter.Count > 5)
-                            {
-                                throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
-                            }
-                            else
-                            {
-                                // untuk setiap parameter di list
-                                foreach (string parameter in listParameter) //orange
-                                {
-                                    List<int> listDataCount = new List<int>();
-                                    // untuk setiap kelas
-                                    foreach (string kelas in FormUtama.listClass)//c0,c1
-                                    {
-                                        // menghitung data
-                                        int dataCount = Feat.HitungData(feat, kelas, parameter);
-                                        listDataCount.Add(dataCount);
-                                    }
-                                    int totalData = listDataCount.Sum();//total orange
 
-                                    // untuk setiap jumlah data di list
-                                    double entropyFeat = 0;
-                                    foreach (int dCount in listDataCount)
-                                    {
-                                        double x = (double)dCount / (double)totalData;
-                                        if (x != 0) entropyFeat += (-x) * Math.Log(x, 2);
-                                        else entropyFeat += 0;
-                                    }
-
-                                    sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
-                                }
-
-                                FormUtama.listFeatEntropy.Add(sigma);
-
-                                double gain = FormUtama.entropyParent - sigma;
-                                FormUtama.listEntropyGain.Add(gain);
-                            }
-
-                            #region IsNumber
-                            //if (!IsNumber(listParameter))
+                            #region Categorical Only
+                            //// kalau isi listParameter lebih dari 5
+                            //if (listParameter.Count > 5)
                             //{
-                            //    #region Data Categorical Calculation
-                            //    // kalau isi listParameter lebih dari 5
-                            //    if (listParameter.Count > 5)
-                            //    {
-                            //        throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
-                            //    }
-                            //    else
-                            //    {
-                            //        // untuk setiap parameter di list
-                            //        foreach (string parameter in listParameter) //orange
-                            //        {
-                            //            List<int> listDataCount = new List<int>();
-                            //            // untuk setiap kelas
-                            //            foreach (string kelas in FormUtama.listClass)//c0,c1
-                            //            {
-                            //                // menghitung data
-                            //                int dataCount = Feat.HitungData(feat, kelas, parameter);
-                            //                listDataCount.Add(dataCount);
-                            //            }
-                            //            int totalData = listDataCount.Sum();//total orange
-
-                            //            // untuk setiap jumlah data di list
-                            //            double entropyFeat = 0;
-                            //            foreach (int dCount in listDataCount)
-                            //            {
-                            //                double x = (double)dCount / (double)totalData;
-                            //                entropyFeat += (-x) * Math.Log(x, 2);
-                            //            }
-
-                            //            sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
-                            //        }
-
-                            //        FormUtama.listFeatEntropy.Add(sigma);
-
-                            //        double gain = FormUtama.entropyParent - sigma;
-                            //        FormUtama.listEntropyGain.Add(gain);
-                            //    }
-                            //    #endregion
+                            //    throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
                             //}
                             //else
                             //{
-                            //    #region Data Continuous Calculation
-                            //    // kalau isi listParameter lebih dari 5
-                            //    if (listParameter.Count > 5)
+                            //    // untuk setiap parameter di list
+                            //    foreach (string parameter in listParameter)
                             //    {
-                            //        throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
-                            //    }
-                            //    else
-                            //    {
-                            //        listParameter.Sort();
-                            //        List<string> listMilestone = new List<string>();
-                            //        // untuk setiap angka
-                            //        for (int i = 0; i < listParameter.Count; i++)
+                            //        List<int> listDataCount = new List<int>();
+                            //        // untuk setiap kelas
+                            //        foreach (string kelas in FormUtama.listClass)
                             //        {
-                            //            if (i != listParameter.Count - 1)
-                            //            {
-                            //                int milestone = (int.Parse(listParameter[i]) + int.Parse(listParameter[i + 1])) / 2;
-                            //                listMilestone.Add(milestone.ToString());
-                            //            }
-                            //            else
-                            //            {
-                            //                if (int.Parse(listParameter[0]) < 10)
-                            //                {
-                            //                    listMilestone.Add((int.Parse(listParameter[0]) - 1).ToString());
-                            //                }
-                            //                else if (int.Parse(listParameter[0]) < 100)
-                            //                {
-                            //                    listMilestone.Add((int.Parse(listParameter[0]) - 5).ToString());
-                            //                }
-                            //                else if (int.Parse(listParameter[0]) < 1000)
-                            //                {
-                            //                    listMilestone.Add((int.Parse(listParameter[0]) - 10).ToString());
-                            //                }
+                            //            // menghitung data
+                            //            int dataCount = Feat.HitungData(feat, kelas, parameter);
+                            //            listDataCount.Add(dataCount);
+                            //        }
+                            //        int totalData = listDataCount.Sum();
 
-                            //                if (int.Parse(listParameter[listParameter.Count - 1]) < 10)
-                            //                {
-                            //                    listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 1).ToString());
-                            //                }
-                            //                else if (int.Parse(listParameter[listParameter.Count - 1]) < 100)
-                            //                {
-                            //                    listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 5).ToString());
-                            //                }
-                            //                else if (int.Parse(listParameter[listParameter.Count - 1]) < 1000)
-                            //                {
-                            //                    listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 10).ToString());
-                            //                }
-
-                            //                listMilestone.Sort();
-                            //            }
+                            //        // untuk setiap jumlah data di list
+                            //        double entropyFeat = 0;
+                            //        foreach (int dCount in listDataCount)
+                            //        {
+                            //            double x = (double)dCount / (double)totalData;
+                            //            if (x != 0) entropyFeat += (-x) * Math.Log(x, 2);
+                            //            else entropyFeat += 0;
                             //        }
 
-                            //        // untuk setiap parameter di list
-                            //        foreach (string milestone in listMilestone) //orange
-                            //        {
-                            //            List<int> listDataCount = new List<int>();
-                            //            // untuk setiap kelas
-                            //            foreach (string kelas in FormUtama.listClass)//c0,c1
-                            //            {
-                            //                // menghitung data
-                            //                int dataCount = Feat.HitungData(feat, kelas, milestone);
-                            //                listDataCount.Add(dataCount);
-                            //            }
-                            //            int totalData = listDataCount.Sum();//total orange
-
-                            //            // untuk setiap jumlah data di list
-                            //            double entropyFeat = 0;
-                            //            foreach (int dCount in listDataCount)
-                            //            {
-                            //                double x = (double)dCount / (double)totalData;
-                            //                entropyFeat += (-x) * Math.Log(x, 2);
-                            //            }
-
-                            //            sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
-                            //        }
-
-                            //        FormUtama.listFeatEntropy.Add(sigma);
-
-                            //        double gain = FormUtama.entropyParent - sigma;
-                            //        FormUtama.listEntropyGain.Add(gain);
+                            //        sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
                             //    }
-                            //    #endregion
+
+                            //    FormUtama.listFeatEntropy.Add(sigma);
+
+                            //    double gain = FormUtama.entropyParent - sigma;
+                            //    FormUtama.listEntropyGain.Add(gain);
                             //}
+                            #endregion
+
+                            #region IsNumber
+                            if (!IsNumber(listParameter))
+                            {
+                                #region Data Categorical Calculation
+                                // kalau isi listParameter lebih dari 5
+                                if (listParameter.Count > 5)
+                                {
+                                    throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
+                                }
+                                else
+                                {
+                                    // untuk setiap parameter di list
+                                    foreach (string parameter in listParameter) //orange
+                                    {
+                                        List<int> listDataCount = new List<int>();
+                                        // untuk setiap kelas
+                                        foreach (string kelas in FormUtama.listClass)//c0,c1
+                                        {
+                                            // menghitung data
+                                            int dataCount = Feat.HitungData(feat, kelas, parameter);
+                                            listDataCount.Add(dataCount);
+                                        }
+                                        int totalData = listDataCount.Sum();//total orange
+
+                                        // untuk setiap jumlah data di list
+                                        double entropyFeat = 0;
+                                        foreach (int dCount in listDataCount)
+                                        {
+                                            double x = (double)dCount / (double)totalData;
+                                            if (x != 0) entropyFeat += (-x) * Math.Log(x, 2);
+                                            else entropyFeat += 0;
+                                        }
+
+                                        sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
+                                    }
+
+                                    FormUtama.listFeatEntropy.Add(sigma);
+
+                                    double gain = FormUtama.entropyParent - sigma;
+                                    FormUtama.listEntropyGain.Add(gain);
+                                }
+                                #endregion
+                            }
+                            else
+                            {
+                                #region Data Continuous Calculation
+                                // kalau isi listParameter lebih dari 5
+                                if (listParameter.Count > 5)
+                                {
+                                    throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
+                                }
+                                else
+                                {
+                                    listParameter.Sort();
+                                    List<string> listMilestone = new List<string>();
+                                    // untuk setiap angka
+                                    for (int i = 0; i < listParameter.Count; i++)
+                                    {
+                                        if (i != listParameter.Count - 1)
+                                        {
+                                            int milestone = (int.Parse(listParameter[i]) + int.Parse(listParameter[i + 1])) / 2;
+                                            listMilestone.Add(milestone.ToString());
+                                        }
+                                        else
+                                        {
+                                            if (int.Parse(listParameter[0]) < 10)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[0]) - 1).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[0]) < 100)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[0]) - 5).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[0]) < 1000)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[0]) - 10).ToString());
+                                            }
+
+                                            if (int.Parse(listParameter[listParameter.Count - 1]) < 10)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 1).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[listParameter.Count - 1]) < 100)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 5).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[listParameter.Count - 1]) < 1000)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 10).ToString());
+                                            }
+
+                                            listMilestone.Sort();
+                                        }
+                                    }
+
+                                    // untuk setiap parameter di list
+                                    foreach (string milestone in listMilestone)
+                                    {
+                                        List<int> countLebihKecil = new List<int>();
+                                        int totalData;
+                                        double entropyFeat;
+                                        double M = 0;
+
+                                        // untuk setiap kelas
+                                        foreach (string kelas in FormUtama.listClass)
+                                        {
+                                            // menghitung data
+                                            int dataCount = Feat.CariDataLebihKecil(feat, kelas, milestone);
+                                            countLebihKecil.Add(dataCount);
+                                        }
+                                        totalData = countLebihKecil.Sum();
+
+                                        // untuk setiap jumlah data di list
+                                        entropyFeat = 0;
+                                        foreach (int dCount in countLebihKecil)
+                                        {
+                                            double x = (double)dCount / (double)totalData;
+                                            if (x != 0 && totalData != 0) entropyFeat += (-x) * Math.Log(x, 2);
+                                            else entropyFeat += 0;
+                                        }
+
+                                        M += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
+
+                                        List<int> countLebihBesar = new List<int>();
+                                        // untuk setiap kelas
+                                        foreach (string kelas in FormUtama.listClass)
+                                        {
+                                            // menghitung data
+                                            int dataCount = Feat.CariDataLebihBesar(feat, kelas, milestone);
+                                            countLebihBesar.Add(dataCount);
+                                        }
+                                        totalData = countLebihBesar.Sum();
+
+                                        // untuk setiap jumlah data di list
+                                        entropyFeat = 0;
+                                        foreach (int dCount in countLebihBesar)
+                                        {
+                                            double x = (double)dCount / (double)totalData;
+                                            if (x != 0 && totalData != 0) entropyFeat += (-x) * Math.Log(x, 2);
+                                            else entropyFeat += 0;
+                                        }
+
+                                        M += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
+
+                                        FormUtama.listFeatEntropyCon.Add(M);
+
+                                        double gain = FormUtama.entropyParent - M;
+                                        FormUtama.listEntropyConGain.Add(gain);
+                                    }
+
+                                    FormUtama.listFeatEntropy.Add(FormUtama.listFeatEntropyCon.Min());
+                                    FormUtama.listEntropyGain.Add(FormUtama.listEntropyConGain.Max());
+                                }
+                                #endregion
+                            }
                             #endregion
                         }
 
                         // Tambahkan M ke listbox
                         listBoxInfo.Items.Add("");
                         listBoxInfo.Items.Add("Feat " + feat);
+                        listBoxInfo.Items.Add("------------");
                         listBoxInfo.Items.Add("Entropy : " + FormUtama.listFeatEntropy[feat - 1].ToString());
 
                         // Tambahkan gain ke listbox
@@ -270,7 +304,7 @@ namespace Project_Data_Mining
                     // Best Split
                     listBoxInfo.Items.Add("");
                     double bestSplit = FormUtama.listEntropyGain.Max();
-                    listBoxInfo.Items.Add("Best Split adalah Feat " + (FormUtama.listEntropyGain.IndexOf(bestSplit) + 1).ToString() + " karena memiliki nilai gain terbesar diantara nilai gain atribut lainnya");
+                    listBoxInfo.Items.Add("Best Split adalah Feat " + (FormUtama.listEntropyGain.IndexOf(bestSplit) + 1).ToString("") + " karena memiliki nilai gain terbesar diantara nilai gain atribut lainnya");
 
                     // Set supaya tidak ada perhitungan ulang
                     FormUtama.entropyCalculated = true;

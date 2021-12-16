@@ -117,6 +117,36 @@ namespace Project_Data_Mining_LIB
             }
             return banyakData;
         }
+
+        public static int CariDataLebihKecil(int feat_id, string class_id, string nilai)
+        {
+            string sql = "select count(distinct(document_id)) from feats where feat_id = " + feat_id + " and class_id = '" + class_id + "' and nilai <= '" + nilai + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            int banyakData = 0;
+
+            while (hasil.Read() == true)
+            {
+                banyakData = hasil.GetInt32(0);
+            }
+            return banyakData;
+        }
+
+        public static int CariDataLebihBesar(int feat_id, string class_id, string nilai)
+        {
+            string sql = "select count(distinct(document_id)) from feats where feat_id = " + feat_id + " and class_id = '" + class_id + "' and nilai > '" + nilai + "'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            int banyakData = 0;
+
+            while (hasil.Read() == true)
+            {
+                banyakData = hasil.GetInt32(0);
+            }
+            return banyakData;
+        }
         #endregion
     }
 }

@@ -33,6 +33,8 @@ namespace Project_Data_Mining
         // untuk Entropy
         public static List<double> listFeatEntropy = new List<double>();
         public static List<double> listEntropyGain = new List<double>();
+        public static List<double> listFeatEntropyCon = new List<double>();
+        public static List<double> listEntropyConGain = new List<double>();
         public static bool entropyCalculated = false;
         public static double entropyParent = 0;
 
