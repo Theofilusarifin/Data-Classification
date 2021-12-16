@@ -150,75 +150,6 @@ namespace Project_Data_Mining
         #region Button
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
-            #region revision
-            //#region class
-            //var parent = listClass.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
-            //List<string> listDocClass = new List<string>();
-            //double ginTotal = 0;
-            //foreach (var x in parent)
-            //{
-            //    //Melakukan penghitungan class;
-            //    listDocClass.Add(x.Value);
-            //    ginTotal += Math.Pow((double)(x.Count) / (double)(listData.Count), 2);
-            //}
-            //double giniFinal = Math.Round(1 - ginTotal, 3);
-            //listBoxInfo.Items.Add("Gini Parent = " + ginTotal.ToString());
-            //#endregion
-
-            //#region Feats
-            //double gini = 0;
-            //var feat = listClass.GroupBy(x => x).Select(g => new { Value = g.Key, Count = g.Count() }).OrderByDescending(x => x.Count);
-            //List<string> listfeat = new List<string>();
-            //List<string> listFeats = FormUtama.listClass;
-            //foreach (var x in feat)
-            //{
-            //    listfeat.Add(x.Value.ToString());
-            //    listfeat.Add(x.Count.ToString());
-            //}
-            //for (int i = 0; i < listData.Count; i++)
-            //{
-            //    if (double.TryParse(listData[i].ListFeat.ToString(), out double check) == true)
-            //    {
-            //        gini = CountGiniFNum(listfeat, listDocClass, listFeats, listClass,i);
-            //    }
-            //    else
-            //    {
-            //        gini = CountGiniFString(listfeat, listDocClass, listFeats, listClass,i);
-            //    }
-            //    listBoxInfo.Items.Add("GINI Feat " + (i + 1) + " : " + gini);
-            //}
-            //#endregion
-
-            //#region BestGain
-            //double gain = 0;
-            //double marking = 0;
-            //double bestGain = 0;
-            //for (int i = 0; i < listData.Count; i++)
-            //{
-            //    if (double.TryParse(listData[i].ListFeat.ToString(), out double check) == true)
-            //    {
-            //        gini = CountGiniFNum(listfeat, listDocClass, listFeats, listClass, i);
-            //    }
-            //    else
-            //    {
-            //        gini = CountGiniFString(listfeat, listDocClass, listFeats, listClass,i);
-            //    }
-            //    marking = i;
-            //    gain = 1 - gini;
-            //    bestGain = gain;
-            //    if (gain > bestGain)
-            //        bestGain = gain;
-            //}
-            //for (int z = 0; z < listfeat.Count; z++)
-            //{
-            //    if (z == marking)
-            //    {
-            //        listBoxInfo.Items.Add("Feat " + (z + 1) + " is the best split. Use it");
-            //    }
-            //}
-            //#endregion
-            #endregion
-
             try
             {
                 if (!calculated)
@@ -247,7 +178,7 @@ namespace Project_Data_Mining
                     }
                     
                     // Tampilkan gini ke listbox
-                    listBoxInfo.Items.Add("Gini Parent : " + FormUtama.giniParent);
+                    listBoxInfo.Items.Add("Gini Parent: " + FormUtama.giniParent);
 
                     // Foreach Feat Gini Calculation
                     for (int fnum = 1; fnum <= FormUtama.featNumber; fnum++)
@@ -291,10 +222,10 @@ namespace Project_Data_Mining
                         // Tambahkan M ke listbox
                         listBoxInfo.Items.Add("");
                         listBoxInfo.Items.Add("Feat " + fnum);
-                        listBoxInfo.Items.Add("Gini : " + FormUtama.listFeatGini[fnum-1].ToString());
+                        listBoxInfo.Items.Add("Gini: " + FormUtama.listFeatGini[fnum-1].ToString());
 
                         // Tambahkan gain ke listbox
-                        listBoxInfo.Items.Add("Gain : " + FormUtama.listFeatGain[fnum-1].ToString());
+                        listBoxInfo.Items.Add("Gain: " + FormUtama.listFeatGain[fnum-1].ToString());
                     }
 
                     // Best Split
