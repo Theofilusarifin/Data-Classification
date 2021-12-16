@@ -17,6 +17,7 @@ namespace Project_Data_Mining
         {
             InitializeComponent();
         }
+
         #region Methods
         private void FormatDataGrid()
         {
