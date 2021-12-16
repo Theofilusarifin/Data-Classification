@@ -76,7 +76,9 @@ namespace Project_Data_Mining
                         foreach (int cCount in dataPerClass)
                         {
                             double x = (double)cCount / (double)FormUtama.totalParent;
-                            double temp = (-x) * Math.Log(x, 2);
+                            double temp = 0;
+                            if (x != 0) temp = (-x) * Math.Log(x, 2);
+                            
                             FormUtama.entropyParent += temp;
                         }
                     }
@@ -115,7 +117,8 @@ namespace Project_Data_Mining
                                     foreach (int dCount in listDataCount)
                                     {
                                         double x = (double)dCount / (double)totalData;
-                                        entropyFeat += (-x) * Math.Log(x, 2);
+                                        if (x != 0) entropyFeat += (-x) * Math.Log(x, 2);
+                                        else entropyFeat += 0;
                                     }
 
                                     sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
