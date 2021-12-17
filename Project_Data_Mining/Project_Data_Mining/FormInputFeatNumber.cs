@@ -38,7 +38,7 @@ namespace Project_Data_Mining
         {
             try
             {
-                if (numericUpDownFeatNumber.Value > 1)
+                if (numericUpDownFeatNumber.Value > 1 && numericUpDownFeatNumber.Value < 6)
                 {
                     FormUtama.featNumber = (int)numericUpDownFeatNumber.Value;
                     FormUtama.classNumber = (int)numericUpDownClassNumber.Value;
@@ -51,7 +51,7 @@ namespace Project_Data_Mining
                 }
                 else
                 {
-                    MessageBox.Show("Data harus mempunyai minimal 2 Feat");
+                    MessageBox.Show("Data harus mempunyai lebih dari 1 dan kurang dari 6 feat");
                 }
             }
             catch(Exception ex)

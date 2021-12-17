@@ -39,7 +39,6 @@ namespace Project_Data_Mining
                 {
                     // hasil false
                     return false;
-                    break;
                 }
             }
             // hasil true
@@ -92,46 +91,6 @@ namespace Project_Data_Mining
                         {
                             List<string> listParameter = Feat.AmbilData(feat);
                             double sigma = 0;
-
-                            #region Categorical Only
-                            //// kalau isi listParameter lebih dari 5
-                            //if (listParameter.Count > 5)
-                            //{
-                            //    throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + feat.ToString() + " melebihi 5");
-                            //}
-                            //else
-                            //{
-                            //    // untuk setiap parameter di list
-                            //    foreach (string parameter in listParameter)
-                            //    {
-                            //        List<int> listDataCount = new List<int>();
-                            //        // untuk setiap kelas
-                            //        foreach (string kelas in FormUtama.listClass)
-                            //        {
-                            //            // menghitung data
-                            //            int dataCount = Feat.HitungData(feat, kelas, parameter);
-                            //            listDataCount.Add(dataCount);
-                            //        }
-                            //        int totalData = listDataCount.Sum();
-
-                            //        // untuk setiap jumlah data di list
-                            //        double entropyFeat = 0;
-                            //        foreach (int dCount in listDataCount)
-                            //        {
-                            //            double x = (double)dCount / (double)totalData;
-                            //            if (x != 0) entropyFeat += (-x) * Math.Log(x, 2);
-                            //            else entropyFeat += 0;
-                            //        }
-
-                            //        sigma += (double)totalData / (double)FormUtama.totalParent * entropyFeat;
-                            //    }
-
-                            //    FormUtama.listFeatEntropy.Add(sigma);
-
-                            //    double gain = FormUtama.entropyParent - sigma;
-                            //    FormUtama.listEntropyGain.Add(gain);
-                            //}
-                            #endregion
 
                             #region IsNumber
                             if (!IsNumber(listParameter))
@@ -295,10 +254,10 @@ namespace Project_Data_Mining
                         listBoxInfo.Items.Add("");
                         listBoxInfo.Items.Add("Feat " + feat);
                         listBoxInfo.Items.Add("------------");
-                        listBoxInfo.Items.Add("Entropy : " + FormUtama.listFeatEntropy[feat - 1].ToString());
+                        listBoxInfo.Items.Add("Entropy: " + FormUtama.listFeatEntropy[feat - 1].ToString());
 
                         // Tambahkan gain ke listbox
-                        listBoxInfo.Items.Add("Gain : " + FormUtama.listEntropyGain[feat - 1].ToString());
+                        listBoxInfo.Items.Add("Gain: " + FormUtama.listEntropyGain[feat - 1].ToString());
                     }
 
                     // Best Split
