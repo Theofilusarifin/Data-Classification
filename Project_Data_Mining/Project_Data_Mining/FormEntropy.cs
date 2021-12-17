@@ -130,7 +130,7 @@ namespace Project_Data_Mining
 
                                     FormUtama.listFeatEntropy.Add(sigma);
 
-                                    double gain = FormUtama.giniParent - sigma;
+                                    double gain = FormUtama.entropyParent - sigma;
                                     FormUtama.listEntropyGain.Add(gain);
                                 }
                                 #endregion
@@ -161,7 +161,7 @@ namespace Project_Data_Mining
                                         {
                                             double milestone = (parameter[i] + parameter[i + 1]) / 2;
                                             listMilestone.Add(milestone);
-                                            MessageBox.Show(milestone.ToString());
+                                            //MessageBox.Show(milestone.ToString());
                                         }
                                         else
                                         {
@@ -250,7 +250,7 @@ namespace Project_Data_Mining
 
                                         FormUtama.listFeatEntropyCon.Add(M);
 
-                                        double gain = FormUtama.giniParent - M;
+                                        double gain = FormUtama.entropyParent - M;
                                         FormUtama.listEntropyConGain.Add(gain);
                                     }
 

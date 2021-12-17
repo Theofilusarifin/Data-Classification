@@ -280,7 +280,7 @@ namespace Project_Data_Mining
                                         {
                                             double milestone = (parameter[i] + parameter[i + 1]) / 2;
                                             listMilestone.Add(milestone);
-                                            MessageBox.Show(milestone.ToString());
+                                            //MessageBox.Show(milestone.ToString());
                                         }
                                         else
                                         {
