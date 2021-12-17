@@ -264,42 +264,50 @@ namespace Project_Data_Mining
                                 }
                                 else
                                 {
-                                    listParameter.Sort();
-                                    List<string> listMilestone = new List<string>();
-                                    // untuk setiap angka
-                                    for (int i = 0; i < listParameter.Count; i++)
+                                    List<double> parameter = new List<double>();
+
+                                    foreach(string s in listParameter)
                                     {
-                                        if (i != listParameter.Count - 1)
+                                        parameter.Add(int.Parse(s));
+                                    }
+                                    parameter.Sort();
+
+                                    List<double> listMilestone = new List<double>();
+                                    // untuk setiap angka
+                                    for (int i = 0; i < parameter.Count; i++)
+                                    {
+                                        if (i != parameter.Count - 1)
                                         {
-                                            int milestone = (int.Parse(listParameter[i]) + int.Parse(listParameter[i + 1])) / 2;
-                                            listMilestone.Add(milestone.ToString());
+                                            double milestone = (parameter[i] + parameter[i + 1]) / 2;
+                                            listMilestone.Add(milestone);
+                                            MessageBox.Show(milestone.ToString());
                                         }
                                         else
                                         {
-                                            if (int.Parse(listParameter[0]) < 10)
+                                            if (parameter[0] < 10)
                                             {
-                                                listMilestone.Add((int.Parse(listParameter[0]) - 1).ToString());
+                                                listMilestone.Add(parameter[0] - 1);
                                             }
-                                            else if (int.Parse(listParameter[0]) < 100)
+                                            else if (parameter[0] < 100)
                                             {
-                                                listMilestone.Add((int.Parse(listParameter[0]) - 5).ToString());
+                                                listMilestone.Add(parameter[0] - 5);
                                             }
-                                            else if (int.Parse(listParameter[0]) < 1000)
+                                            else if (parameter[0] < 1000)
                                             {
-                                                listMilestone.Add((int.Parse(listParameter[0]) - 10).ToString());
+                                                listMilestone.Add(parameter[0] - 10);
                                             }
 
-                                            if (int.Parse(listParameter[listParameter.Count - 1]) < 10)
+                                            if (parameter[parameter.Count - 1] < 10)
                                             {
-                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 1).ToString());
+                                                listMilestone.Add(parameter[parameter.Count - 1] + 1);
                                             }
-                                            else if (int.Parse(listParameter[listParameter.Count - 1]) < 100)
+                                            else if (parameter[parameter.Count - 1] < 100)
                                             {
-                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 5).ToString());
+                                                listMilestone.Add(parameter[parameter.Count - 1] + 5);
                                             }
-                                            else if (int.Parse(listParameter[listParameter.Count - 1]) < 1000)
+                                            else if (parameter[parameter.Count - 1] < 1000)
                                             {
-                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 10).ToString());
+                                                listMilestone.Add(parameter[parameter.Count - 1] + 10);
                                             }
 
                                             listMilestone.Sort();
@@ -307,13 +315,14 @@ namespace Project_Data_Mining
                                     }
 
                                     // untuk setiap parameter di list
-                                    foreach (string milestone in listMilestone)
+                                    foreach (double milestone in listMilestone)
                                     {
                                         List<int> countLebihKecil = new List<int>();
                                         int totalData;
                                         double giniFeat;
                                         double M = 0;
 
+                                        #region Cari Data <=
                                         // untuk setiap kelas
                                         foreach (string kelas in FormUtama.listClass)
                                         {
@@ -333,7 +342,9 @@ namespace Project_Data_Mining
                                         }
 
                                         M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                                        #endregion
 
+                                        #region Cari Data >
                                         List<int> countLebihBesar = new List<int>();
                                         // untuk setiap kelas
                                         foreach (string kelas in FormUtama.listClass)
@@ -354,6 +365,7 @@ namespace Project_Data_Mining
                                         }
 
                                         M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                                        #endregion
 
                                         FormUtama.listFeatGiniCon.Add(M);
 
