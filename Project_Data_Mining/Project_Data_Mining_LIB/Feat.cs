@@ -65,11 +65,11 @@ namespace Project_Data_Mining_LIB
         #endregion
 
         #region Methods
-        public static Boolean TambahData(Feat f)
+        public static Boolean TambahData(Feat f, Koneksi KParram)
         {
             string sql = "insert into feats (document_id, class_id, feat_id, nilai) values ('" + f.Data.Document_id + "', '" + f.Kelas.Id + "', " + f.Feat_id + ", '" + f.Nilai + "')";
 
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql, KParram);
             if (jumlahDitambah == 0) return false;
             else return true;
         }

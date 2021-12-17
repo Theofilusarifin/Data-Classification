@@ -34,11 +34,11 @@ namespace Project_Data_Mining_LIB
         #endregion
 
         #region Method
-        public static Boolean TambahData(Data d)
+        public static Boolean TambahData(Data d, Koneksi KParram)
         {
             string sql = "insert into datas values ('" + d.Document_id + "')";
 
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql, KParram);
             if (jumlahDitambah == 0) return false;
             else return true;
         }

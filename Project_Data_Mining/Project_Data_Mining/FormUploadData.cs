@@ -144,7 +144,7 @@ namespace Project_Data_Mining
                         // Membuat data baru yang ada pada col 0
                         Data d = new Data(dataGridView.Rows[rows].Cells[0].Value.ToString());
                         // Menambahkan data ke database
-                        Data.TambahData(d);
+                        Data.TambahData(d, FormUtama.koneksi);
 
                         // Membuat class yang ada pada col terakhir
                         Class c = new Class(dataGridView.Rows[rows].Cells[FormUtama.featNumber + 1].Value.ToString());
@@ -152,7 +152,7 @@ namespace Project_Data_Mining
                         if (!FormUtama.listClass.Contains(c.Id))
                         {
                             // Tambah data class ke database
-                            Class.TambahData(c);
+                            Class.TambahData(c, FormUtama.koneksi);
                             // Tambah data class ke list
                             FormUtama.listClass.Add(c.Id);
                         }
@@ -163,7 +163,7 @@ namespace Project_Data_Mining
                             // Membuat feat baru ke database
                             Feat f = new Feat(d, c, column, dataGridView.Rows[rows].Cells[column].Value.ToString());
                             // Menambahkan feat
-                            Feat.TambahData(f);
+                            Feat.TambahData(f, FormUtama.koneksi);
                         }
                     }
                     FormLoading frm = new FormLoading(); //Create Object

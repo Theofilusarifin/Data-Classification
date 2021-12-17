@@ -42,11 +42,11 @@ namespace Project_Data_Mining_LIB
         #endregion
 
         #region Methods
-        public static Boolean TambahData(Class c)
+        public static Boolean TambahData(Class c, Koneksi KParram)
         {
             string sql = "insert into classes values ('" + c.Id + "')";
 
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql, KParram);
             if (jumlahDitambah == 0) return false;
             else return true;
         }
