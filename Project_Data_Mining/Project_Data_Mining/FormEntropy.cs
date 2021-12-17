@@ -63,7 +63,7 @@ namespace Project_Data_Mining
                         for (int cNum = 0; cNum < FormUtama.classNumber; cNum++)
                         {
                             // hitung banyak data per class
-                            int count = Feat.AmbilParent(FormUtama.listClass[cNum]);
+                            int count = Feat.AmbilParent(FormUtama.listClass[cNum], FormUtama.koneksi);
                             // masukkan hasil hitungan ke list
                             dataPerClass.Add(count);
                         }
@@ -111,7 +111,7 @@ namespace Project_Data_Mining
                                         foreach (string kelas in FormUtama.listClass)
                                         {
                                             // menghitung data
-                                            int dataCount = Feat.HitungData(feat, kelas, parameter);
+                                            int dataCount = Feat.HitungData(feat, kelas, parameter, FormUtama.koneksi);
                                             listDataCount.Add(dataCount);
                                         }
                                         int totalData = listDataCount.Sum();
@@ -208,7 +208,7 @@ namespace Project_Data_Mining
                                         foreach (string kelas in FormUtama.listClass)
                                         {
                                             // menghitung data
-                                            int dataCount = Feat.CariDataLebihKecil(feat, kelas, milestone);
+                                            int dataCount = Feat.CariDataLebihKecil(feat, kelas, milestone, FormUtama.koneksi);
                                             countLebihKecil.Add(dataCount);
                                         }
                                         totalData = countLebihKecil.Sum();
@@ -231,7 +231,7 @@ namespace Project_Data_Mining
                                         foreach (string kelas in FormUtama.listClass)
                                         {
                                             // menghitung data
-                                            int dataCount = Feat.CariDataLebihBesar(feat, kelas, milestone);
+                                            int dataCount = Feat.CariDataLebihBesar(feat, kelas, milestone, FormUtama.koneksi);
                                             countLebihBesar.Add(dataCount);
                                         }
                                         totalData = countLebihBesar.Sum();

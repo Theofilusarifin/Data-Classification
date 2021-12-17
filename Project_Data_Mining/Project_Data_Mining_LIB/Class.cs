@@ -51,47 +51,47 @@ namespace Project_Data_Mining_LIB
             else return true;
         }
 
-        public static List<Class> BacaData()
-        {
-            string sql = "select distinct id from classes";
+        //public static List<Class> BacaData()
+        //{
+        //    string sql = "select distinct id from classes";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+        //    MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
-            List<Class> listClass = new List<Class>();
+        //    List<Class> listClass = new List<Class>();
 
-            while (hasil.Read() == true)
-            {
-                Class c = new Class(hasil.GetString(0));
-                listClass.Add(c);
-            }
-            return listClass;
-        }
+        //    while (hasil.Read() == true)
+        //    {
+        //        Class c = new Class(hasil.GetString(0));
+        //        listClass.Add(c);
+        //    }
+        //    return listClass;
+        //}
 
-        public static List<Class> BacaData(string id)
-        {
-            string sql = "select id, count(id) from classes" +
-                         "where id = " + id;
+        //public static List<Class> BacaData(string id)
+        //{
+        //    string sql = "select id, count(id) from classes" +
+        //                 "where id = " + id;
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+        //    MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
-            List<Class> listClass = new List<Class>();
+        //    List<Class> listClass = new List<Class>();
 
-            while (hasil.Read() == true)
-            {
-                Class c = new Class(hasil.GetString(0), int.Parse(hasil.GetString(1)));
-                listClass.Add(c);
-            }
-            return listClass;
-        }
+        //    while (hasil.Read() == true)
+        //    {
+        //        Class c = new Class(hasil.GetString(0), int.Parse(hasil.GetString(1)));
+        //        listClass.Add(c);
+        //    }
+        //    return listClass;
+        //}
 
-        public static Class AmbilData(Class c)
-        {
-            string sql = "select * from classes where id = '" + c.Id + "'";
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
-            Class cl = new Class(hasil.GetString(0));
+        //public static Class AmbilData(Class c)
+        //{
+        //    string sql = "select * from classes where id = '" + c.Id + "'";
+        //    MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+        //    Class cl = new Class(hasil.GetString(0));
 
-            return cl;
-        }
+        //    return cl;
+        //}
         #endregion
     }
 }

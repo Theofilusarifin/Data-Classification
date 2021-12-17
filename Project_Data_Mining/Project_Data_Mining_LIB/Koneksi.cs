@@ -77,12 +77,12 @@ namespace Project_Data_Mining_LIB
             return hasil;
         }
 
-        //public static MySqlDataReader JalankanPerintahQuery(string sql, Koneksi koneksi)
-        //{
-        //    MySqlCommand c = new MySqlCommand(sql, koneksi.KoneksiDB);
-        //    MySqlDataReader hasil = c.ExecuteReader();
-        //    return hasil;
-        //}
+        public static MySqlDataReader JalankanPerintahQuery(string sql, Koneksi koneksi)
+        {
+            MySqlCommand c = new MySqlCommand(sql, koneksi.KoneksiDB);
+            MySqlDataReader hasil = c.ExecuteReader();
+            return hasil;
+        }
 
         public static int JalankanPerintahDML(string sql)
         {

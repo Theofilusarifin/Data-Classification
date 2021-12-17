@@ -73,11 +73,11 @@ namespace Project_Data_Mining_LIB
             if (jumlahDitambah == 0) return false;
             else return true;
         }
-        public static int AmbilParent(string class_id)
+        public static int AmbilParent(string class_id, Koneksi KParram)
         {
             string sql = "select count(distinct(document_id)) from feats where class_id = '" + class_id + "'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql, KParram);
 
             int banyakData = 0;
 
@@ -85,6 +85,10 @@ namespace Project_Data_Mining_LIB
             {
                 banyakData = hasil.GetInt32(0);
             }
+
+            hasil.Dispose();
+            hasil.Close();
+
             return banyakData;
         }
 
@@ -100,14 +104,15 @@ namespace Project_Data_Mining_LIB
             {
                 listData.Add(hasil.GetString(0));
             }
+
             return listData;
         }
 
-        public static int HitungData(int feat_id, string class_id, string nilai)
+        public static int HitungData(int feat_id, string class_id, string nilai, Koneksi KParram)
         {
             string sql = "select count(distinct(document_id)) from feats where feat_id = " + feat_id + " and class_id = '" + class_id + "' and nilai = '" + nilai + "'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql, KParram);
 
             int banyakData = 0;
 
@@ -115,14 +120,18 @@ namespace Project_Data_Mining_LIB
             {
                 banyakData = hasil.GetInt32(0);
             }
+
+            hasil.Dispose();
+            hasil.Close();
+
             return banyakData;
         }
 
-        public static int CariDataLebihKecil(int feat_id, string class_id, double nilai)
+        public static int CariDataLebihKecil(int feat_id, string class_id, double nilai, Koneksi KParram)
         {
             string sql = "select count(distinct(document_id)) from feats where feat_id = " + feat_id + " and class_id = '" + class_id + "' and nilai <= " + nilai;
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql, KParram);
 
             int banyakData = 0;
 
@@ -130,14 +139,18 @@ namespace Project_Data_Mining_LIB
             {
                 banyakData = hasil.GetInt32(0);
             }
+
+            hasil.Dispose();
+            hasil.Close();
+
             return banyakData;
         }
 
-        public static int CariDataLebihBesar(int feat_id, string class_id, double nilai)
+        public static int CariDataLebihBesar(int feat_id, string class_id, double nilai, Koneksi KParram)
         {
             string sql = "select count(distinct(document_id)) from feats where feat_id = " + feat_id + " and class_id = '" + class_id + "' and nilai > " + nilai;
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql, KParram);
 
             int banyakData = 0;
 
@@ -145,6 +158,10 @@ namespace Project_Data_Mining_LIB
             {
                 banyakData = hasil.GetInt32(0);
             }
+
+            hasil.Dispose();
+            hasil.Close();
+
             return banyakData;
         }
         #endregion
