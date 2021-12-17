@@ -26,7 +26,9 @@ namespace Project_Data_Mining
 
         // Untuk Gini
         public static List<double> listFeatGini = new List<double>();
-        public static List<double> listFeatGain = new List<double>();
+        public static List<double> listGiniGain = new List<double>();
+        public static List<double> listFeatGiniCon = new List<double>();
+        public static List<double> listGiniConGain = new List<double>();
         public static bool giniCalculated = false;
         public static double giniParent = 0;
 
@@ -91,21 +93,28 @@ namespace Project_Data_Mining
                 // Global
                 featNumber = 0;
                 classNumber = 0;
+                listClass.Clear();
+                totalParent = 0;
 
                 // Untuk Aproximity Matrix
                 listData.Clear();
                 dataReaded = false;
 
                 // Untuk Gini
-                listClass.Clear();
-                listFeatGain.Clear();
                 listFeatGini.Clear();
-                totalParent = 0;
-                giniParent = 0;
+                listGiniGain.Clear();
+                listFeatGiniCon.Clear();
+                listGiniConGain.Clear();                
                 giniCalculated = false;
+                giniParent = 0;
 
                 // Untuk Entropy
-
+                listFeatEntropy.Clear();
+                listEntropyGain.Clear();
+                listFeatEntropyCon.Clear();
+                listEntropyConGain.Clear();
+                entropyCalculated = false;
+                entropyParent = 0;
 
                 //Melakuan drop dan membuat kembali table pada database agar data kembali kosong
                 Koneksi.JalankanPerintahDML("DROP TABLE IF EXISTS feats;");

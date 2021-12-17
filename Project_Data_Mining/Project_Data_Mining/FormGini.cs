@@ -147,6 +147,30 @@ namespace Project_Data_Mining
 
         private bool calculated = false;
 
+        #region Methods
+        private bool IsNumber(List<string> list)
+        {
+            // untu setiap data di list
+            foreach (string data in list)
+            {
+                double num1;
+                // kalau data adalah angka atau bisa diubah jadi angka (double)
+                if (double.TryParse(data, out num1))
+                {
+                    // lanjut ke data berikutnya
+                }
+                // kalau tidak
+                else
+                {
+                    // hasil false
+                    return false;
+                }
+            }
+            // hasil true
+            return true;
+        }
+        #endregion
+
         #region Button
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
@@ -186,37 +210,163 @@ namespace Project_Data_Mining
                         if (!FormUtama.giniCalculated)
                         {
                             List<string> listParameter = Feat.AmbilData(fnum);
-                            double M = 0;
-                            if (listParameter.Count > 5)
+                            double sigma = 0;
+
+                            #region IsNumber
+                            if (!IsNumber(listParameter))
                             {
-                                throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + fnum.ToString() + " melebihi 5");
+                                #region Data Categorical Calculation
+                                // kalau isi listParameter lebih dari 5
+                                if (listParameter.Count > 5)
+                                {
+                                    throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + fnum.ToString() + " melebihi 5");
+                                }
+                                else
+                                {
+                                    // untuk setiap parameter di list
+                                    foreach (string parameter in listParameter)
+                                    {
+                                        List<int> listDataCount = new List<int>();
+                                        // untuk setiap kelas
+                                        foreach (string kelas in FormUtama.listClass)
+                                        {
+                                            // menghitung data
+                                            int dataCount = Feat.HitungData(fnum, kelas, parameter);
+                                            listDataCount.Add(dataCount);
+                                        }
+                                        int totalData = listDataCount.Sum();
+
+                                        // untuk setiap jumlah data di list
+                                        double giniFeat = 1;
+                                        foreach (int dCount in listDataCount)
+                                        {
+                                            double x = (double)dCount / (double)totalData;
+                                            giniFeat -= Math.Pow(x, 2);
+                                        }
+
+                                        sigma += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                                    }
+
+                                    FormUtama.listFeatGini.Add(sigma);
+
+                                    double gain = FormUtama.giniParent - sigma;
+                                    FormUtama.listGiniGain.Add(gain);
+                                }
+                                #endregion
                             }
                             else
                             {
-                                foreach (string parameter in listParameter)
+                                #region Data Continuous Calculation
+                                // kalau isi listParameter lebih dari 5
+                                if (listParameter.Count > 5)
                                 {
-                                    List<int> listDataCount = new List<int>();
-                                    foreach (string cl in FormUtama.listClass)
-                                    {
-                                        int dataCount = Feat.HitungData(fnum, cl, parameter);
-                                        listDataCount.Add(dataCount);
-                                    }
-                                    int totalData = listDataCount.Sum();
-
-                                    // Gini on parameter fnum calculation
-                                    double giniFeat = 1;
-                                    foreach (int dCount in listDataCount)
-                                    {
-                                        giniFeat -= Math.Pow(((double)dCount / (double)totalData), 2);
-                                    }
-
-                                    M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+                                    throw new ArgumentException("Jumlah jenis nilai yang berbeda pada Feat " + fnum.ToString() + " melebihi 5");
                                 }
-                                FormUtama.listFeatGini.Add(M);
+                                else
+                                {
+                                    listParameter.Sort();
+                                    List<string> listMilestone = new List<string>();
+                                    // untuk setiap angka
+                                    for (int i = 0; i < listParameter.Count; i++)
+                                    {
+                                        if (i != listParameter.Count - 1)
+                                        {
+                                            int milestone = (int.Parse(listParameter[i]) + int.Parse(listParameter[i + 1])) / 2;
+                                            listMilestone.Add(milestone.ToString());
+                                        }
+                                        else
+                                        {
+                                            if (int.Parse(listParameter[0]) < 10)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[0]) - 1).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[0]) < 100)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[0]) - 5).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[0]) < 1000)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[0]) - 10).ToString());
+                                            }
 
-                                double gain = FormUtama.giniParent - M;
-                                FormUtama.listFeatGain.Add(gain);
+                                            if (int.Parse(listParameter[listParameter.Count - 1]) < 10)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 1).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[listParameter.Count - 1]) < 100)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 5).ToString());
+                                            }
+                                            else if (int.Parse(listParameter[listParameter.Count - 1]) < 1000)
+                                            {
+                                                listMilestone.Add((int.Parse(listParameter[listParameter.Count - 1]) + 10).ToString());
+                                            }
+
+                                            listMilestone.Sort();
+                                        }
+                                    }
+
+                                    // untuk setiap parameter di list
+                                    foreach (string milestone in listMilestone)
+                                    {
+                                        List<int> countLebihKecil = new List<int>();
+                                        int totalData;
+                                        double giniFeat;
+                                        double M = 0;
+
+                                        // untuk setiap kelas
+                                        foreach (string kelas in FormUtama.listClass)
+                                        {
+                                            // menghitung data
+                                            int dataCount = Feat.CariDataLebihKecil(fnum, kelas, milestone);
+                                            countLebihKecil.Add(dataCount);
+                                        }
+                                        totalData = countLebihKecil.Sum();
+
+                                        // untuk setiap jumlah data di list
+                                        giniFeat = 1;
+                                        foreach (int dCount in countLebihKecil)
+                                        {
+                                            double x = (double)dCount / (double)totalData;
+                                            if (totalData != 0) giniFeat -= Math.Pow(x, 2);
+                                            else giniFeat -= 0;
+                                        }
+
+                                        M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+
+                                        List<int> countLebihBesar = new List<int>();
+                                        // untuk setiap kelas
+                                        foreach (string kelas in FormUtama.listClass)
+                                        {
+                                            // menghitung data
+                                            int dataCount = Feat.CariDataLebihBesar(fnum, kelas, milestone);
+                                            countLebihBesar.Add(dataCount);
+                                        }
+                                        totalData = countLebihBesar.Sum();
+
+                                        // untuk setiap jumlah data di list
+                                        giniFeat = 1;
+                                        foreach (int dCount in countLebihBesar)
+                                        {
+                                            double x = (double)dCount / (double)totalData;
+                                            if (totalData != 0) giniFeat -= Math.Pow(x, 2);
+                                            else giniFeat -= 0;
+                                        }
+
+                                        M += (double)totalData / (double)FormUtama.totalParent * giniFeat;
+
+                                        FormUtama.listFeatGiniCon.Add(M);
+
+                                        double gain = FormUtama.giniParent - M;
+                                        FormUtama.listGiniConGain.Add(gain);
+                                    }
+
+                                    FormUtama.listFeatGini.Add(FormUtama.listFeatGiniCon.Min());
+                                    FormUtama.listGiniGain.Add(FormUtama.listGiniConGain.Max());
+                                }
+                                #endregion
                             }
+                            #endregion
                         }
 
                         // Tambahkan M ke listbox
@@ -226,13 +376,13 @@ namespace Project_Data_Mining
                         listBoxInfo.Items.Add("Gini: " + FormUtama.listFeatGini[fnum-1].ToString());
 
                         // Tambahkan gain ke listbox
-                        listBoxInfo.Items.Add("Gain: " + FormUtama.listFeatGain[fnum-1].ToString());
+                        listBoxInfo.Items.Add("Gain: " + FormUtama.listGiniGain[fnum-1].ToString());
                     }
 
                     // Best Split
                     listBoxInfo.Items.Add("");
-                    double bestSplit = FormUtama.listFeatGain.Max();
-                    listBoxInfo.Items.Add("Best Split adalah Feat " + (FormUtama.listFeatGain.IndexOf(bestSplit) + 1).ToString() + " karena memiliki nilai gain terbesar diantara nilai gain atribut lainnya");
+                    double bestSplit = FormUtama.listGiniGain.Max();
+                    listBoxInfo.Items.Add("Best Split adalah Feat " + (FormUtama.listGiniGain.IndexOf(bestSplit) + 1).ToString() + " karena memiliki nilai gain terbesar diantara nilai gain atribut lainnya");
 
                     // Set supaya tidak ada perhitungan ulang
                     FormUtama.giniCalculated = true;
