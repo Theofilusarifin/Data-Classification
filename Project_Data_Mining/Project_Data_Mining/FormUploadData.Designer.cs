@@ -137,7 +137,7 @@ namespace Project_Data_Mining
             this.comboBoxSheet.FormattingEnabled = true;
             this.comboBoxSheet.Location = new System.Drawing.Point(127, 79);
             this.comboBoxSheet.Name = "comboBoxSheet";
-            this.comboBoxSheet.Size = new System.Drawing.Size(93, 30);
+            this.comboBoxSheet.Size = new System.Drawing.Size(578, 30);
             this.comboBoxSheet.TabIndex = 11;
             // 
             // label2
