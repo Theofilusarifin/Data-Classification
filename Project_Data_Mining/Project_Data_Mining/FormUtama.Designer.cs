@@ -87,7 +87,7 @@ namespace Project_Data_Mining
             // 
             // panelBackground
             // 
-            this.panelBackground.BackgroundImage = global::Project_Data_Mining.Properties.Resources.Form_Utama;
+            this.panelBackground.BackgroundImage = global::Project_Data_Mining.Properties.Resources.Form_Utama1;
             this.panelBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelBackground.Controls.Add(this.buttonGetStarted);
             this.panelBackground.Controls.Add(this.pictureBoxHelp);
