@@ -40,37 +40,38 @@ namespace Project_Data_Mining
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Montserrat", 9.749999F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.approximityMatrixToolStripMenuItem,
             this.giniToolStripMenuItem,
             this.entropyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(739, 26);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // approximityMatrixToolStripMenuItem
             // 
-            this.approximityMatrixToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.approximityMatrixToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F);
             this.approximityMatrixToolStripMenuItem.Name = "approximityMatrixToolStripMenuItem";
-            this.approximityMatrixToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.approximityMatrixToolStripMenuItem.Text = "Approximity Matrix";
+            this.approximityMatrixToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.approximityMatrixToolStripMenuItem.Text = "Proximity Matrix";
             this.approximityMatrixToolStripMenuItem.Click += new System.EventHandler(this.approximityMatrixToolStripMenuItem_Click);
             // 
             // giniToolStripMenuItem
             // 
-            this.giniToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
+            this.giniToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F);
             this.giniToolStripMenuItem.Name = "giniToolStripMenuItem";
-            this.giniToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.giniToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
             this.giniToolStripMenuItem.Text = "Gini";
             this.giniToolStripMenuItem.Click += new System.EventHandler(this.giniToolStripMenuItem_Click);
             // 
             // entropyToolStripMenuItem
             // 
-            this.entropyToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
+            this.entropyToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F);
             this.entropyToolStripMenuItem.Name = "entropyToolStripMenuItem";
-            this.entropyToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.entropyToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
             this.entropyToolStripMenuItem.Text = "Entropy";
             this.entropyToolStripMenuItem.Click += new System.EventHandler(this.entropyToolStripMenuItem_Click);
             // 
@@ -94,12 +95,12 @@ namespace Project_Data_Mining
             // 
             // listBoxInfo
             // 
-            this.listBoxInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F);
+            this.listBoxInfo.Font = new System.Drawing.Font("Montserrat", 9.749999F);
             this.listBoxInfo.FormattingEnabled = true;
-            this.listBoxInfo.ItemHeight = 16;
-            this.listBoxInfo.Location = new System.Drawing.Point(39, 79);
+            this.listBoxInfo.ItemHeight = 18;
+            this.listBoxInfo.Location = new System.Drawing.Point(38, 61);
             this.listBoxInfo.Name = "listBoxInfo";
-            this.listBoxInfo.Size = new System.Drawing.Size(661, 356);
+            this.listBoxInfo.Size = new System.Drawing.Size(661, 364);
             this.listBoxInfo.TabIndex = 12;
             // 
             // FormEntropy

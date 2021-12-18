@@ -105,8 +105,8 @@ namespace Project_Data_Mining
             // 
             this.approximityMatrixToolStripMenuItem.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.approximityMatrixToolStripMenuItem.Name = "approximityMatrixToolStripMenuItem";
-            this.approximityMatrixToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.approximityMatrixToolStripMenuItem.Text = "Approximity Matrix";
+            this.approximityMatrixToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.approximityMatrixToolStripMenuItem.Text = "Proximity Matrix";
             this.approximityMatrixToolStripMenuItem.Click += new System.EventHandler(this.approximityMatrixToolStripMenuItem_Click);
             // 
             // giniToolStripMenuItem
@@ -171,7 +171,7 @@ namespace Project_Data_Mining
             this.MaximizeBox = false;
             this.Name = "FormApproxityMatrix";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Approxity Matrix";
+            this.Text = "Proximity Matrix";
             this.Load += new System.EventHandler(this.FormResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
